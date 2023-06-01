@@ -117,3 +117,19 @@ nav a .tooltip::after {
     top: 50%;
     transform: translateY(-50%);
 }
+
+#messageInput:valid ~ #submitButton {
+  background-color: rgb(25, 195, 125);
+}
+
+#messageInput:valid ~ #submitButton svg {
+  fill: white;
+}
+
+#submitButton svg {
+  fill: grey;
+}
+
+#submitButton {
+  transition: fill 250ms ease-in-out, background-color 250ms ease-in-out;
+}
