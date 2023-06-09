@@ -1,46 +1,99 @@
 <?php
+
+require 'connectToDatabase.php';
+require 'ExceptionWithField.php';
+
 session_start();
 
 header('Content-Type: application/json');
 
-$servername = $_ENV['DB_SERVER'];
-$username = $_ENV['DB_USERNAME'];
-$password = $_ENV['DB_PASSWORD'];
-$dbname = $_ENV['DB_NAME'];
+try {
+    $conn = connectToDatabase();
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
+        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
 
-if ($conn->connect_error) {
-    echo json_encode(['error' => 'Failed to connect to the database', 'field' => 'general']);
-    exit;
+        // Backup point
+        $conn->begin_transaction();
+
+        formValidator($username, $password, $confirm_password);
+
+        if (userExists($conn, $username)) {
+            throw new ExceptionWithField('Username already exists', 'username');
+        }
+
+        createUser($conn, $username, $password);
+
+        // Final backup of the user in the database (loss of backup point)
+        $conn->commit();
+
+        echo json_encode(['success' => 'Registration successful']);
+    } else {
+        throw new Exception('Invalid input data');
+    }
+} catch (ExceptionWithField $e) {
+    // Return to backup point
+    $conn->rollback();
+    echo json_encode(['error' => $e->getMessage(), 'field' => $e->getField()]);
+} catch (Exception $e) {
+    // Return to backup point
+    $conn->rollback();
+    echo json_encode(['error' => $e->getMessage()]);
+} finally {
+    if (isset($conn)) {
+        $conn->close();
+    }
 }
 
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
-    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-} else {
-    echo json_encode(['error' => 'Invalid input data', 'field' => 'general']);
-    exit;
+function formValidator($username, $password, $confirm_password) {
+    // Check the username
+    if (strlen($username) < 3 || strlen($username) > 30) {
+        throw new ExceptionWithField('Username must be between 3 and 30 characters', 'username');
+    }
+
+    // Check the password
+    if (strlen($password) < 8 ||
+        !preg_match('/[a-z]/', $password) ||
+        !preg_match('/[A-Z]/', $password) ||
+        !preg_match('/\d/', $password) ||
+        !preg_match('/[!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]+/', $password)
+    ) {
+        throw new ExceptionWithField('Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character (@$!%*#?&)', 'password');
+    }
+
+    // Check if the two passwords match
+    if ($password !== $confirm_password) {
+        throw new ExceptionWithField('Passwords do not match', 'confirm_password');
+    }
 }
 
-if ($password !== $confirm_password) {
-    echo json_encode(['error' => 'Passwords do not match', 'field' => 'confirm_password']);
-    exit;
+function userExists($conn, $username) {
+    $stmt = $conn->prepare("SELECT * FROM Users WHERE username = ?");
+
+    if (!$stmt) {
+        throw new Exception('Failed to verify if user exists');
+    }
+
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $exists = $result->num_rows > 0;
+    $stmt->close();
+    return $exists;
 }
 
-$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+function createUser($conn, $username, $password) {
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    $stmt = $conn->prepare("INSERT INTO Users (username, password) VALUES (?, ?)");
 
-$stmt = $conn->prepare("INSERT INTO Users (username, password) VALUES (?, ?)");
+    if (!$stmt) {
+        throw new Exception('Failed to prepare user creation');
+    }
 
-if ($stmt) {
     $stmt->bind_param("ss", $username, $hashed_password);
     $stmt->execute();
     $stmt->close();
-    echo json_encode(['success' => 'Registration successful']);
-} else {
-    echo json_encode(['error' => 'An error occurred during registration', 'field' => 'general']);
 }
-
-$conn->close();
 ?>

@@ -27,7 +27,7 @@ document.querySelector('.form').addEventListener('submit', function(e) {
             }
         } else if (data.success) {
             // Redirect when login is successful
-            window.location.href = '../index.php';
+            window.location.href = './profile.html';
         }
     });
 });

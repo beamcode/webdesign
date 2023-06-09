@@ -21,7 +21,8 @@ passwordInput.addEventListener('input', function() {
     checkInputs();
 });
 
-if (confirmPasswordInput) { // Only exists on the signup page
+// Only exists on the signup page
+if (confirmPasswordInput) {
     confirmPasswordInput.addEventListener('input', function() {
         userStartedTyping.confirm = true;
         checkInputs();
@@ -67,24 +68,21 @@ function checkInputs() {
     } else {
         submitButton.disabled = true;
     }
-    // if (username.length >= 3 && username.length <= 30 && 
-    //     errorMessages[1].textContent == '' && 
-    //     password == confirmPassword) {
-    //     submitButton.disabled = false;
-    // } else {
-    //     submitButton.disabled = true;
-    // }
 }
 
 function checkPassword(password, errorMessageElement) {
     let passwordValue = password;
+    let hasEnoughLength = /.{8,}/.test(passwordValue);
     let hasLowerCase = /[a-z]/.test(passwordValue);
     let hasUpperCase = /[A-Z]/.test(passwordValue);
     let hasNumber = /\d/.test(passwordValue);
     let hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(passwordValue);
-    let hasEnoughLength = /.{8,}/.test(passwordValue);
 
     let errors = [];
+
+    if (!hasEnoughLength) {
+        errors.push("be at least 8 characters long.");
+    }
 
     if (!hasLowerCase) {
         errors.push("contain at least one lowercase letter.");
@@ -102,13 +100,9 @@ function checkPassword(password, errorMessageElement) {
         errors.push("contain at least one of the following special characters: @$!%*#?&");
     }
 
-    if (!hasEnoughLength) {
-        errors.push("be at least 8 characters long.");
-    }
-
     if (errors.length > 0) {
         let formattedErrors = errors.map(error => `<li>${error}</li>`).join('');
-        errorMessageElement.innerHTML = `Your password must: <ul>${formattedErrors}</ul>`;
+        errorMessageElement.innerHTML = `Password must: <ul>${formattedErrors}</ul>`;
     } else {
         errorMessageElement.innerHTML = '';
     }

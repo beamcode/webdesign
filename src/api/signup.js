@@ -31,7 +31,7 @@ document.querySelector('.form').addEventListener('submit', function(e) {
                     break;
             }
         } else if (data.success) {
-            // Redirect or do something when registration is successful
+            // Redirect when registration is successful
             window.location.href = './login.html';
         }
     });
