@@ -15,13 +15,6 @@ if ($conn->connect_error) {
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-// TODO Create the basic table in docker !!!!!!!!!!!!
-$sql = "CREATE TABLE Users (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(30) NOT NULL,
-    password VARCHAR(255) NOT NULL
-)";
-
 // Hashage du mot de passe
 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 

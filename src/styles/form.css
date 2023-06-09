@@ -1,6 +1,7 @@
 :root {
     --primary-color: #5865f2;
     --secondary-color: #4d57c3;
+    --hovered-color: #4d57c3;
     --disabled-color: #8087cb;
     --background-mobile-primary: #313338;
     --input-background: #1e1f22;
@@ -19,6 +20,8 @@ body {
 }
 
 a {
+    position: relative;
+    margin: 0;
     text-decoration: none;
     font-weight: 600;
     color: var(--primary-color);
@@ -28,25 +31,24 @@ a:hover {
     color: var(--secondary-color);
 }
 
-a:after {
-    border-bottom: 2px solid;
-    bottom: -6px;
-    content: "";
-    height: 100%;
-    left: 0;
+a::after {
     position: absolute;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: bottom left;
-    transform-origin: bottom left;
-    transition-duration: .25s;
-    transition-property: -webkit-transform;
-    transition-property: transform;
-    transition-property: transform,-webkit-transform;
-    transition-timing-function: cubic-bezier(0,0,.2,1);
+    content: "";
+    width: 0;
+    left: 0;
+    bottom: -6px;
+    background: var(--hovered-color);
+    height: 3px;
+    transition: 250ms ease-out;
+}
+
+a:hover::after {
     width: 100%;
 }
 
+p {
+    margin: 0;
+}
 
 /* textarea:focus, input:focus{
     outline: solid 5px grey;
