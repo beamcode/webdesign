@@ -19,7 +19,7 @@ services:
   web:
     build: .
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:z
     ports:
       - 8000:80
 
