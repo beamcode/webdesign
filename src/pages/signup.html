@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Inscription</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="../styles/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="form-container">
-        <form class="form" action="../api/inscription.php" method="post">
+        <form class="form" action="../backend/signup.php" method="post">
             <img src="https://www.tagheuer.com/on/demandware.static/-/Library-Sites-TagHeuer-Shared/default/dwf2b7fbd0/images/landings/jpc/experience/icons/mushroom.png?imbypass=true" alt="Website Logo" srcset="">
             <p class="title">Create your account</p>
             <p class="message">Signup now and get full access to our app. </p>
@@ -26,7 +26,7 @@
             <span id="password-error" class="error-message"></span>
 
             <label class="password-field">
-                <input required placeholder="" type="password" class="input confirm-password">
+                <input name="confirm_password" required placeholder="" type="password" class="input confirm-password">
                 <span class="placeholder">Confirm password</span>
                 <i class="toggle-password fa fa-eye"></i>
             </label>
@@ -38,5 +38,6 @@
     </div>
     <script src="../script/togglePassword.js"></script>
     <script src="../script/checkInputsConnection.js"></script>
+    <script src="../api/signup.js"></script>
 </body>
 </html>

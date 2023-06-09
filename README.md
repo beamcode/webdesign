@@ -9,7 +9,7 @@ Webdesign project
 ├── db
 ├── docker-compose.yml
 └── src
-    ├── api
+    ├── backend
     ├── assets
     │   ├── fonts
     │   └── images
