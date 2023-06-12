@@ -8,7 +8,7 @@ document.querySelector('.form').addEventListener('submit', function(e) {
         method: 'POST',
         body: new FormData(this)
     })
-    .then(response => response.json())
+    .then(response => response.json()) // TODO response.ok ???
     .then(data => {
         // Reset error messages
         usernameError.textContent = '';

@@ -17,7 +17,7 @@ try {
         // Backup point
         $conn->begin_transaction();
 
-        $stmt = $conn->prepare("SELECT password FROM Users WHERE username = ?");
+        $stmt = $conn->prepare("SELECT id, password FROM Users WHERE username = ?");
 
         if (!$stmt) {
             throw new Exception('An error occurred while logging in');
@@ -40,7 +40,7 @@ try {
         // Final backup of the user in the database (loss of backup point)
         $conn->commit();
 
-        $_SESSION['username'] = $username;
+        $_SESSION['user_id'] = $row['id'];
         echo json_encode(['success' => 'Successfully logged in']);
     } else {
         throw new Exception('Invalid input data');

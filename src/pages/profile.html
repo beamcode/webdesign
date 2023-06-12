@@ -2,11 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 <body>
+    <div>
+        <button id="edit_mode" data-edit-mode="false" onclick="toggleEditMode(this)">Edit Mode</button>
+        <button id="save_changes" onclick="saveChanges()" style="display:none">Save Changes</button>
+        <div style="position: relative;">
+            <img id="banner_image" src="" alt="Banner Image" style="width: 200px;">
+            <div id="edit_banner_image_icons" style="left:210px; display:none;">
+                <input type="file" id="banner_image_input" style="display:none" onchange="handleImageChange(event, 'banner_image')">
+                <img src="https://cdn-icons-png.flaticon.com/512/860/860814.png" height="14px" alt="Edit Banner Image" onclick="document.getElementById('banner_image_input').click()" style="cursor: pointer;">
+                <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/cross-icon.png" height="14px" alt="Delete Banner Image" onclick="deleteImage('banner_image_input', 'banner_image')" style="cursor: pointer;">
+            </div>
+            <img id="profile_image" src="" alt="Profile Image" style="left:10px; width: 50px;">
+            <div id="edit_profile_image_icons" style="left:10px; display:none;">
+                <input type="file" id="profile_image_input" style="display:none" onchange="handleImageChange(event, 'profile_image')">
+                <img src="https://cdn-icons-png.flaticon.com/512/860/860814.png" height="14px" alt="Edit Profile Image" onclick="document.getElementById('profile_image_input').click()" style="cursor: pointer;">
+                <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/cross-icon.png" height="14px" alt="Delete Profile Image" onclick="deleteImage('profile_image_input', 'profile_image')" style="cursor: pointer;">
+            </div>
+        </div>
+        <h1 id="username"></h1>
+        <p id="description" contenteditable="false"></p>
+    </div>
 
+    <script src="../api/profile.js"></script>
 </body>
 </html>
