@@ -3,28 +3,30 @@
 require 'connectToDatabase.php';
 require 'ExceptionWithField.php';
 
+session_start();
 
 // Function to get all messages from the database
-function getMessages()
+function getMessages($conn)
 {
     global $conn;
-    $sql = "SELECT * FROM ChatMessages";
+    $sql = "SELECT ChatMessages.id AS userId, ChatMessages.message, Users.username, Users.profile_image 
+            FROM ChatMessages 
+            INNER JOIN Users ON ChatMessages.user_id = Users.id";
     $result = $conn->query($sql);
 
     if ($result) {
-        $messages = $result->fetch_all(MYSQLI_ASSOC);
+        $data = $result->fetch_all(MYSQLI_ASSOC);
         $result->close();
-        return $messages;
+        return $data;
     } else {
         // Error occurred while fetching messages
-        return [];
+        return null;
     }
 }
 
 // Function to save a new message to the database
-function saveMessage($userId, $message)
+function saveMessage($userId, $message, $conn)
 {
-    global $conn;
     $stmt = $conn->prepare("INSERT INTO ChatMessages (user_id, message) VALUES (?, ?)");
     $stmt->bind_param("is", $userId, $message);
 
@@ -45,12 +47,12 @@ try {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get the form field values
-        $userId = $_POST["userId"];
+        $userId = $_SESSION["user_id"];
         $message = $_POST["message"];
         $responseCode = 500;
     
         // Save the message to the database
-        $saveResult = saveMessage($userId, $message);
+        $saveResult = saveMessage($userId, $message, $conn);
     
         if ($saveResult) {
             // Message saved successfully
@@ -79,14 +81,14 @@ try {
     
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Fetch messages from the database
-        $messages = getMessages();
+        $data = getMessages($conn);
         $responseCode = 500;
     
         // Check if any messages were fetched
-        if (!empty($messages)) {
+        if (!empty($data)) {
     
             $responseCode = 200;
-            $response = $messages;
+            $response = $data;
         } else {
             // Error occurred while fetching messages
             $response = [
@@ -111,9 +113,5 @@ try {
     if (isset($conn)) {
         $conn->close();
     }
-    if (isset($stmt)) {
-        $stmt->close();
-    }
 }
-
 ?>

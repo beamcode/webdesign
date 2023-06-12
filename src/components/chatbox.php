@@ -5,8 +5,7 @@
     <form id="ChatForm" method="POST" onsubmit="sendMessage(event);">
         <div class="relative bg-gray-800 px-4 py-4 flex">
             <div class="flex-1 flex gap-2">
-                <input name="userId" type="text" id="userId" class="resize-none w-11 px-3 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded focus:outline-0" placeholder="ID" required />
-                <input name="message" type="text" id="message" class="resize-none flex-grow px-3 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded focus:outline-0" placeholder="Type a message..." required />
+                <input name="message" type="text" autocomplete="off" id="message" class="resize-none flex-grow px-3 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded focus:outline-0" placeholder="Type a message..." required />
             </div>
             <button type="submit" class="absolute right-4 p-[13px] rounded dark:disabled:hover:bg-transparent disabled:text-gray-400 enabled:bg-brand-purple text-white disabled:opacity-40">
                 <span class="" data-state="closed">
