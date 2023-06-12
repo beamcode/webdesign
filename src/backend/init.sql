@@ -10,3 +10,11 @@ CREATE TABLE IF NOT EXISTS Users (
     profile_image VARCHAR(255),
     banner_image VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS ChatMessages (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT(6) UNSIGNED,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    message VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);
