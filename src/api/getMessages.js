@@ -1,31 +1,23 @@
-let lastMessages = []; // Variable to store the last received messages
+let lastData = []; // Variable to store the last received messages
 let firstLoad = true;
 
 function getMessages(scroll = false) {
-    if (firstLoad === true) {
-        firstLoad = false;
-        scroll = true;
-    }
     const messageContainer = document.getElementById("message-container");
 
-    if (scroll === true) {
-        console.log("Scrolling to bottom");
-    }
-
-    function displayMessages(messages) {
+    function displayMessages(data) {
         // Clear the message container
         messageContainer.innerHTML = "";
 
-        messages.forEach(function (message) {
+        data.forEach(function (value) {
             var messageHtml = `
             <div class="flex items-start mb-4">
-                <div class="w-10 h-10 bg-gray-700 rounded-full"></div>
-                    <div class="ml-4 flex-1 ">
-                        <div class="w-fit text-sm font-bold rounded">ID: ${message.user_id}</div>
-                        <p class="w-full pr-1 rounded overflow-hidden [overflow-wrap:anywhere] break-keep">
-                            ${message.message}
-                        </p>
-                    </div>
+                <img src="${value.profile_image}" alt="Profile Image" class="w-10 text-sm font-bold rounded-full">
+                <div class="ml-4 flex-1 ">
+                    <div class="w-fit text-sm font-bold rounded">${value.username}</div>
+                    <p class="w-full pr-1 rounded overflow-hidden [overflow-wrap:anywhere] break-keep">
+                        ${value.message}
+                    </p>
+                </div>
                 </div>
             </div>
             `;
@@ -51,28 +43,33 @@ function getMessages(scroll = false) {
                 });
             }
         })
-        .then(messages => {
-            if (JSON.stringify(messages) === JSON.stringify(lastMessages)) {
+        .then(data => {
+            if (JSON.stringify(data) === JSON.stringify(lastData)) {
                 console.log("Same messages, skipping DOM update");
             } else {
                 console.log("New messages, updating DOM");
-                lastMessages = messages;
-                displayMessages(messages)
+                lastData = data;
+                displayMessages(data)
             }
-        })
-        .then(() => {
-            if (scroll === true)
-                messageContainer.scrollTop = messageContainer.scrollHeight;
         })
         .catch(error => {
             console.error("An error occurred: ", error);
         })
         .finally(function () {
-            // Fetch messages again after 300 milliseconds
-            setTimeout(function () {
-                getMessages(false);
-            }, 300);
-            if (scroll === true) scroll = false;
+            // Fetch messages again after 500 milliseconds
+            if (firstLoad === true) {
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+                firstLoad = false;
+            }
+            if (scroll === true) {
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+                scroll = false;
+                return
+            } else {
+                setTimeout(function () {
+                    getMessages(false);
+                }, 1000);
+            }
         });
 }
 

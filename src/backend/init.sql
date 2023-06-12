@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS Users (
     username VARCHAR(30) NOT NULL,
     password VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    profile_image VARCHAR(255),
-    banner_image VARCHAR(255)
+    profile_image VARCHAR(255) DEFAULT '../assets/uploads/profile/default_profile.png',
+    banner_image VARCHAR(255) DEFAULT '../assets/uploads/profile/default_banner.png'
 );
 
 CREATE TABLE IF NOT EXISTS ChatMessages (
