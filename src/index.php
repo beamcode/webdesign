@@ -12,15 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="./api/getMessages.js"></script>
+    <script src="./api/sendMessage.js"></script>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <?php include './components/navbar.php'; ?>
- <!-- 
-    <div class="flex">
-        <div class="flex flex-col h-screen w-full bg-gray-600">
-        </div>
-    </div> -->
-    
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal w-full flex justify-center items-center">
+
     <?php include './components/chatbox.php'; ?>
 </body>
 
