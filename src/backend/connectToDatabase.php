@@ -1,6 +1,7 @@
 <?php
 
-function connectToDatabase() {
+function connectToDatabase()
+{
     $servername = $_ENV['DB_SERVER'];
     $username = $_ENV['DB_USERNAME'];
     $password = $_ENV['DB_PASSWORD'];
