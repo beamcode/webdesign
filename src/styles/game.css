@@ -4,9 +4,14 @@ body {
 }
 
   main {
-    width: 80%;
+    /* width: 80%; */
     border-radius: 8px;
-    background: #222;
+    /* background: #97dafd; */
+    content: "";
+    background-image: url("https://preview.redd.it/classic-sceneries-from-classic-mario-games-remade-in-vector-v0-po55rhvoe7ya1.jpg?width=640&crop=smart&auto=webp&s=d31623f6bd13beca1e8535a2fd0c82f01a0a6f65");
+    background-size: cover;
+    background-repeat: no-repeat;
+
   }
   
   h2 {
@@ -24,18 +29,36 @@ body {
     padding: 0;
   }
   
-  .lava, .actor {
+  /* .lava, .actor {
     background: #e55;
-  }
+  } */
 
-  .actor {
+  /* .actor {
     background: rgb(255, 0, 162);
+  } */
+
+.enemy {
+  content: "";
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/6/60/Mario_Kart_Blue_Shell.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+  .lava {
+    content: "";
+    background-image: url("https://static.wikia.nocookie.net/super-mario-maker-2-wiki/images/8/87/PodobooSMW.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
   .wall {
-    background: #444;
+    /* background: #444;
     border: solid 3px #333;
-    box-sizing: content-box;
+    box-sizing: content-box; */
+    content: "";
+    background-image: url("https://w7.pngwing.com/pngs/145/567/png-transparent-red-block-new-super-mario-bros-2-new-super-mario-bros-2-new-super-mario-bros-u-brick-angle-brown-super-mario-bros-thumbnail.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
   .actor {
@@ -43,21 +66,44 @@ body {
   }
   
   .coin {
-    background: #e2e838;
-    border-radius: 50%;
+    /* background: #e2e838;
+    border-radius: 50%; */
+
+    /* background-color: transparent; */
+    content: "";
+    background-image: url("https://64.media.tumblr.com/34ecb97af549396ce54461835a63d1b3/1fe59baa06bb8c17-d9/s540x810/041f293db97d977df5ccd2cd8b94995aa2f9a34a.gif");
+    /* background-size: 100%;
+    height: 100%;
+    width: 100%; */
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
   .player {
-    background: #335699;
-    box-shadow: none;
+    /* background: #335699;
+    box-shadow: none; */
+
+    content: "";
+    background-image: url("https://img.freepik.com/free-icon/mushroom_318-437815.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* transition: filter 0.5s ease; */
+    transition: filter 0.5s;
   }
   
   .lost .player {
-    background: #a04040;
+    /* filter: hue-rotate(50deg) brightness(180%); */
+    filter: blur(1px);
+    /* background-image: url("https://img.freepik.com/free-icon/mushroom_318-437815.jpg"); */
+    /* background: #a04040; */
   }
   
   .won .player {
-    background: green;
+    /* filter: hue-rotate(287deg); */
+    transition: filter 0.5s;
+    filter: hue-rotate(140deg) brightness(140%);
+    /* background-image: url("https://img.freepik.com/free-icon/mushroom_318-437815.jpg"); */
+    /* background: green; */
   }
   
   .game {

@@ -3,7 +3,7 @@ function element(name, className) {
     if (className) elem.className = className;
     return elem;
 }
-var scale = 20;
+var scale = 16;
 
 class DOMDisplay {
     constructor(parent, level) {

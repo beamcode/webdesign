@@ -1,10 +1,10 @@
 import Vector from './Vector.js';
-import { Player, Lava, Coin } from './Entities.js';
+import { Player, Enemy, Lava, Coin } from './Entities.js';
 
 var actorchars = {
     "@": Player,
     "o": Coin,
-    "=": Lava,
+    "=": Enemy,
     "|": Lava,
     "v": Lava
 };
@@ -30,7 +30,7 @@ class Level {
                 else if (ch === "|")
                     fieldType = "lava";
                 else if (ch === "=")
-                    fieldType = "lava";
+                    fieldType = "enemy";
                 else if (ch === "v") {
                     fieldType = "lava";
                     console.log(fieldType);

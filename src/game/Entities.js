@@ -7,8 +7,8 @@ var jumpSpeed = 45;
 class Player {
     constructor(pos) {
         this.type = "player";
-        this.pos = pos.add(new Vector(0, -.5));
-        this.size = new Vector(.5, 1);
+        this.pos = pos.add(new Vector(0, 0));
+        this.size = new Vector(0.9, 0.9);
         this.speed = new Vector(0, 0);
     }
     moveX(step, level, keys) {
@@ -61,9 +61,10 @@ class Lava {
         this.type = "Lava";
         this.pos = pos;
         this.size = new Vector(1, 1);
-        if (ch === "=")
-            this.speed = new Vector(2, 0);
-        else if (ch === '|')
+        // if (ch === "=")
+        //     this.speed = new Vector(2, 0);
+        // else 
+        if (ch === '|')
             this.speed = new Vector(0, 2);
         else if (ch === 'v') {
             this.speed = new Vector(0, 3);
@@ -81,6 +82,31 @@ class Lava {
     }
 }
 
+class Enemy {
+    constructor(pos, ch) {
+        this.type = "enemy";
+        this.pos = pos;
+        this.size = new Vector(1, 1);
+        if (ch === "=")
+            this.speed = new Vector(8, 0);
+        // else if (ch === '|')
+        //     this.speed = new Vector(0, 2);
+        // else if (ch === 'v') {
+        //     this.speed = new Vector(0, 3);
+        //     this.repeatPos = pos;
+        // }
+    }
+    act(step, level) {
+        var newPos = this.pos.add(this.speed.times(step));
+        if (!level.obstacleAt(newPos, this.size))
+            this.pos = newPos;
+        // else if (this.repeatPos)
+        //     this.pos = this.repeatPos;
+        else
+            this.speed = this.speed.times(-1);
+    }
+}
+
 
 
 var wobbleSpeed = 8;
@@ -90,7 +116,7 @@ class Coin {
     constructor(pos) {
         this.type = "coin";
         this.basePos = this.pos = pos;
-        this.size = new Vector(.6, .6);
+        this.size = new Vector(.8, .8);
         this.wobble = Math.random() * Math.PI * 2;
     }
     act(step) {
@@ -100,4 +126,4 @@ class Coin {
     }
 }
 
-export { Player, Lava, Coin };
+export { Player, Enemy, Lava, Coin };
