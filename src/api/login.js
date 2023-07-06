@@ -2,7 +2,6 @@ document.querySelector('.form').addEventListener('submit', function(e) {
     e.preventDefault();
     const usernameError = document.getElementById('username-error');
     const passwordError = document.getElementById('password-error');
-
     fetch('../backend/login.php', {
         method: 'POST',
         body: new FormData(this)
@@ -12,7 +11,6 @@ document.querySelector('.form').addEventListener('submit', function(e) {
         // Reset error messages
         usernameError.textContent = '';
         passwordError.textContent = '';
-
         if (data.error) {
             switch (data.field) {
                 case 'username':

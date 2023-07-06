@@ -1,7 +1,6 @@
 :root {
     --font-primary: "Source Sans Pro", sans-serif;
     --font-secondary: "DM Sans", sans-serif;
-
     --color-bg-primary: #373e57;
     --color-bg-secondary: #151728;
     --color-bg-tertiary: #181d2f;
@@ -10,7 +9,6 @@
     --color-text-secondary: #5c5d71;
     --color-text-accent: #fff;
     --color-accent: #1488fa;
-
     --container-max-width: 1600px;
     --search-bar-height: 60px;
     --profile-height: 40vh;
@@ -19,35 +17,28 @@
     --profile-avatar-size: 150px;
     --profile-avatar-border: 3px;
     --timeline-left-width: 310px;
-
     --scrollbar-size: 8px;
     --scrollbar-radius: 10px;
-
     --space-xs: 8px;
     --space-sm: 16px;
     --space-md: 20px;
     --space-lg: 24px;
 }
-
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
-
 * {
     outline: none;
     box-sizing: border-box;
 }
-
 html {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 }
-
 body {
     margin: 0;
     font-family: var(--font-primary);
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
 }
-
 .container {
     background-color: var(--color-bg-secondary);
     display: flex;
@@ -55,21 +46,18 @@ body {
     height: 100vh;
     margin: 0 auto;
 }
-
 .main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     background-color: var(--color-bg-tertiary);
 }
-
 .search-bar {
     height: var(--search-bar-height);
     background-color: var(--color-bg-secondary);
     z-index: 3;
     position: relative;
 }
-
 .search-bar input {
     height: 100%;
     width: 100%;
@@ -84,17 +72,14 @@ body {
     color: var(--color-text-accent);
     font-family: var(--font-primary);
 }
-
 .search-bar input::placeholder {
     color: var(--color-text-secondary);
 }
-
 .main-container {
     padding: 20px;
     flex-grow: 1;
     background-color: #24273b;
 }
-
 /* ------------------------------------------
 Profile avatar
 ------------------------------------------ */
@@ -106,7 +91,6 @@ Profile avatar
     max-height: var(--profile-max-height);
     z-index: 1;
 }
-
 .edit-label::before {
     position: absolute;
     z-index: 1;
@@ -119,11 +103,9 @@ Profile avatar
     top: 1rem;
     right: 1rem;
 }
-
 #profile-upload-label {
     border-radius: 100%;
 }
-
 #profile-upload-label.edit-label::before {
     background-size: 1.4rem;
     height: 1.4rem;
@@ -131,7 +113,6 @@ Profile avatar
     top: auto;
     right: auto;
 }
-
 #profile-picture,
 #profile-banner {
     position: absolute;
@@ -143,7 +124,6 @@ Profile avatar
     object-position: center;
     border-radius: 4px;
 }
-
 .profile:before {
     content: "";
     width: 100%;
@@ -159,7 +139,6 @@ Profile avatar
     filter: blur(50px);
     opacity: 0.7;
 }
-
 .profile-menu {
     position: absolute;
     bottom: 0;
@@ -169,21 +148,18 @@ Profile avatar
     display: flex;
     border-radius: 0 0 4px 4px;
 }
-
 .profile-menu-link {
     padding: var(--space-md) var(--space-sm);
     color: var(--color-text-secondary);
     transition: 0.3s;
     cursor: pointer;
 }
-
 .profile-menu-link.active,
 .profile-menu-link:hover {
     color: var(--color-text-accent);
     background-color: #1b1d2e;
     border-bottom: 3px solid var(--color-accent);
 }
-
 /* ------------------------------------------
 Profile avatar
 ------------------------------------------ */
@@ -195,7 +171,6 @@ Profile avatar
     bottom: 16px;
     left: 24px;
 }
-
 /* ------------------------------------------
 Profile picture
 ------------------------------------------ */
@@ -208,7 +183,6 @@ Profile picture
     overflow: hidden;
     position: relative;
 }
-
 .banner-img-wrapper {
     position: relative;
     height: 100%;
@@ -216,7 +190,6 @@ Profile picture
     border-radius: 4px;
     overflow: hidden;
 }
-
 .inputfile {
     width: 0.1px;
     height: 0.1px;
@@ -225,13 +198,11 @@ Profile picture
     position: absolute;
     z-index: -1;
 }
-
 .inputfile + label {
     position: absolute;
     cursor: pointer;
     color: white;
     background-color: rgba(0, 0, 0, 0.4);
-
     /* background-color: black; */
     width: 100%;
     height: 100%;
@@ -239,11 +210,9 @@ Profile picture
     justify-content: center;
     align-items: center;
 }
-
 .inputfile + label:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
-
 .profile-name {
     margin-left: 24px;
     margin-bottom: 24px;
@@ -252,7 +221,6 @@ Profile picture
     font-weight: 600;
     font-family: "DM Sans", sans-serif;
 }
-
 /* ------------------------------------------
 Timeline
 ------------------------------------------ */
@@ -283,7 +251,6 @@ Timeline
         width: 100%;
     }
 }
-
 /* ------------------------------------------
 Box
 ------------------------------------------ */
@@ -291,7 +258,6 @@ Box
     background-color: #151728;
     border-radius: 4px;
 }
-
 .intro {
     padding: 20px;
 }
@@ -304,23 +270,19 @@ Box
     align-items: center;
     margin-bottom: 20px;
 }
-
 .pages {
     margin-top: 20px;
     padding: 20px;
 }
-
 .username {
     font-size: 15px;
     font-family: "DM Sans", sans-serif;
 }
-
 .contacts .username {
     display: flex;
     flex: 1;
     align-items: center;
 }
-
 @media screen and (max-width: 700px) {
     .profile-avatar {
         top: -25px;
@@ -330,46 +292,38 @@ Box
         flex-direction: column;
         justify-content: center;
     }
-
     .profile-picture-wrapper {
         height: 100px;
         width: 100px;
     }
-
     .profile-name {
         margin: 5px 0;
     }
-
     .profile-menu {
         padding-left: 0;
         width: 100%;
         overflow: auto;
         justify-content: center;
     }
-
     .profile-menu-link {
         padding: 16px;
         font-size: 15px;
     }
 }
-
 ::-webkit-scrollbar {
     width: var(--scrollbar-size);
     height: var(--scrollbar-size);
     border-radius: var(--scrollbar-radius);
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.01);
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.11);
     border-radius: 10px;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.1);

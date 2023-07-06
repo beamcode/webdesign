@@ -1,9 +1,7 @@
 function sendMessage(event) {
     event.preventDefault();
-
     const form = event.target;
     const formData = new FormData(event.target);
-
     // Send the form data to the PHP backend
     fetch("../backend/message.php", {
         method: "POST",

@@ -2,12 +2,10 @@ html,
 body {
   height: 100%;
 }
-
 body {
   margin: 0;
   background: #36393f;
 }
-
 nav {
   background: #202225;
   float: left;
@@ -20,7 +18,6 @@ nav {
   gap: 15px; /* Vertical gap between the links */
   padding-top: 12px;
 }
-
 nav a {
   display: block;
   width: 48px;
@@ -32,7 +29,6 @@ nav a {
   
   transition: border-radius 250ms, background 250ms;
 }
-
 nav hr {
   display: block;
   width: 32px;
@@ -41,13 +37,11 @@ nav hr {
   border: none; /* Removes a white border that exists by default */
   background: #36393f;
 }
-
 nav a:hover,
 nav a.active {
   border-radius: 25%;
   background: #3ba55d;
 }
-
 nav a::after {
     content: "";
     display: block;
@@ -63,21 +57,17 @@ nav a::after {
   
     transition: height 250ms;
 }
-
 nav a:hover::after {
     height: 18px;
 }
-
 nav a.active::after {
     height: 32px;
 }
-
 nav a .tooltip {
     font-family: sans-serif;
     color: white;
     font-weight: bold;
     font-size: 14px;
-
     padding: 10px 12px;
     margin-left: 10px;
     border-radius: 8px;
@@ -92,11 +82,9 @@ nav a .tooltip {
     top: 50%;
     transform: translateY(-50%);
 }
-
 nav a:hover .tooltip {
     display: block;
 }
-
 nav a .tooltip::after {
     content: "";
     display: block;
@@ -117,19 +105,15 @@ nav a .tooltip::after {
     top: 50%;
     transform: translateY(-50%);
 }
-
 #messageInput:valid ~ #submitButton {
   background-color: rgb(25, 195, 125);
 }
-
 #messageInput:valid ~ #submitButton svg {
   fill: white;
 }
-
 #submitButton svg {
   fill: gray;
 }
-
 #submitButton {
   transition: fill 150ms ease-in-out, background-color 150ms ease-in-out;
 }

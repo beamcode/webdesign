@@ -4,7 +4,6 @@ function element(name, className) {
     return elem;
 }
 var scale = 20;
-
 class DOMDisplay {
     constructor(parent, level) {
         this.wrap = parent.appendChild(element("div", "game"));

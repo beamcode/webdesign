@@ -1,10 +1,7 @@
 <?php
-
 require 'connectToDatabase.php';
 require 'ExceptionWithField.php';
-
 session_start();
-
 // Function to get all messages from the database
 function getMessages($conn)
 {
@@ -13,7 +10,6 @@ function getMessages($conn)
             FROM ChatMessages 
             INNER JOIN Users ON ChatMessages.user_id = Users.id";
     $result = $conn->query($sql);
-
     if ($result) {
         $data = $result->fetch_all(MYSQLI_ASSOC);
         $result->close();
@@ -23,13 +19,11 @@ function getMessages($conn)
         return null;
     }
 }
-
 // Function to save a new message to the database
 function saveMessage($userId, $message, $conn)
 {
     $stmt = $conn->prepare("INSERT INTO ChatMessages (user_id, message) VALUES (?, ?)");
     $stmt->bind_param("is", $userId, $message);
-
     if ($stmt->execute()) {
         // Message saved successfully
         $stmt->close();
@@ -40,11 +34,9 @@ function saveMessage($userId, $message, $conn)
         return false;
     }
 }
-
 // Establishing connection
 try {
     $conn = connectToDatabase();
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get the form field values
         $userId = $_SESSION["user_id"];

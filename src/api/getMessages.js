@@ -1,13 +1,10 @@
 let lastData = []; // Variable to store the last received messages
 let firstLoad = true;
-
 function getMessages(scroll = false) {
     const messageContainer = document.getElementById("message-container");
-
     function displayMessages(data) {
         // Clear the message container
         messageContainer.innerHTML = "";
-
         data.forEach(function (value) {
             var messageHtml = `
             <div class="flex items-start mb-4">
@@ -21,11 +18,9 @@ function getMessages(scroll = false) {
                 </div>
             </div>
             `;
-
             messageContainer.insertAdjacentHTML("beforeend", messageHtml);
         });
     }
-
     fetch("../backend/message.php", {
         method: "GET",
         headers: {
@@ -72,5 +67,4 @@ function getMessages(scroll = false) {
             }
         });
 }
-
 document.addEventListener("DOMContentLoaded", getMessages);

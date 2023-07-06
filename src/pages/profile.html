@@ -9,7 +9,6 @@
 </head>
 <body>
     <div class="container" x-data="{ rightSide: false, leftSide: false }">
-
       <!-- Side Menu  -->
       <div class="left-side" :class="{'active' : leftSide}">
         <div class="left-side-button" @click="leftSide = !leftSide">
@@ -46,7 +45,6 @@
             </a>
         </div>
         </div>
-
         <a href="#" class="follow-me">
         <span class="follow-text">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
@@ -60,8 +58,6 @@
         </span>
         </a>
     </div>
-
-
     <!-- Main content -->
       <div class="main">
         <div class="search-bar">
@@ -95,7 +91,6 @@
               
               <div class="profile-name">Username</div>
             </div>
-
             <div class="banner-img-wrapper">
               <img
                 id="profile-banner"
@@ -116,7 +111,6 @@
                 style="visibility: hidden;"
               ></label>
             </div>
-
             <div class="profile-menu">
               <!-- <a class="profile-menu-link ">Overview</a> -->
               <!-- <a class="profile-menu-link">Statistics</a> -->
@@ -153,8 +147,6 @@
           </div>
         </div>
       </div>
-
-
       <!-- Side Message -->
       <div class="right-side" :class="{ 'active': rightSide }">
         <div class="side-wrapper contacts">
@@ -168,15 +160,8 @@
         </div>
       </div>
       <div class="overlay" @click="rightSide = false; leftSide = false" :class="{ 'active': rightSide || leftSide }"></div>
-
     </div>
     
-
-
-
-
-
-
     <script src="../api/profile.js"></script>
 </body>
 </html>

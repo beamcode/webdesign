@@ -30,8 +30,6 @@ function InsertHighscores() {
 			console.error("An error occurred: ", error);
 		})
 }
-
-
 function displayHighscores(data) {
 	const highscoreContainer = document.getElementById('highscoreContainer');
 	highscoreContainer.innerHTML = '';
@@ -43,6 +41,4 @@ function displayHighscores(data) {
 		highscoreContainer.insertAdjacentHTML('beforeend', highscoreHtml);
 	});
 }
-
-
 InsertHighscores();

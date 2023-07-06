@@ -3,7 +3,6 @@ document.querySelector('.form').addEventListener('submit', function(e) {
     const usernameError = document.getElementById('username-error');
     const passwordError = document.getElementById('password-error');
     const confirmPasswordError = document.getElementById('confirm-password-error');
-
     fetch('../backend/signup.php', {
         method: 'POST',
         body: new FormData(this)
@@ -14,7 +13,6 @@ document.querySelector('.form').addEventListener('submit', function(e) {
         usernameError.textContent = '';
         passwordError.textContent = '';
         confirmPasswordError.textContent = '';
-
         if (data.error) {
             switch (data.field) {
                 case 'username':

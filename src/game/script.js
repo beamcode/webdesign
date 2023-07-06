@@ -1,6 +1,5 @@
 import { runGame } from './Game.js';
 import DOMDisplay from './DOMDisplay.js';
-
 var LEVELS = [
 ["                                                                                ",
     "                                                                                ",
@@ -138,5 +137,4 @@ var LEVELS = [
     "                                                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "                                                                                                              "]
 ];
-
 runGame(LEVELS, DOMDisplay);

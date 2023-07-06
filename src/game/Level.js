@@ -1,6 +1,5 @@
 import Vector from './Vector.js';
 import { Player, Lava, Coin } from './Entities.js';
-
 var actorchars = {
     "@": Player,
     "o": Coin,
@@ -9,7 +8,6 @@ var actorchars = {
     "v": Lava
 };
 var maxStep = 0.05;
-
 class Level {
     constructor(plan) {
         this.width = plan[0].length;
@@ -99,6 +97,4 @@ class Level {
         }
     }
 }
-
-
 export default Level;

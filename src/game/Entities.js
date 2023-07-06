@@ -1,9 +1,7 @@
 import Vector from './Vector.js';
-
 var playerXSpeed = 10;
 var gravity = 120;
 var jumpSpeed = 45;
-
 class Player {
     constructor(pos) {
         this.type = "player";
@@ -53,9 +51,6 @@ class Player {
         }
     }
 }
-
-
-
 class Lava {
     constructor(pos, ch) {
         this.type = "Lava";
@@ -80,12 +75,8 @@ class Lava {
             this.speed = this.speed.times(-1);
     }
 }
-
-
-
 var wobbleSpeed = 8;
 var wobbleDist = 0.07;
-
 class Coin {
     constructor(pos) {
         this.type = "coin";
@@ -99,5 +90,4 @@ class Coin {
         this.pos = this.basePos.add(new Vector(0, wobblePos));
     }
 }
-
 export { Player, Lava, Coin };

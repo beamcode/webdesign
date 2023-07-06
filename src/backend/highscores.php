@@ -1,10 +1,7 @@
 <?php
-
 require 'connectToDatabase.php';
 require 'ExceptionWithField.php';
-
 session_start();
-
 // Function to get the highscores of all players
 function getHighscores($conn)
 {
@@ -23,7 +20,6 @@ function getHighscores($conn)
 		return null;
 	}
 }
-
 // Establishing connection
 try {
 	$conn = connectToDatabase();
@@ -31,7 +27,6 @@ try {
 		// Fetch the highscores
 		$data = getHighscores($conn);
 		$responseCode = 500;
-
 		// Check if any messages were fetched
 		if ($data) {
 			$responseCode = 200;
