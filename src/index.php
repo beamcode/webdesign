@@ -18,7 +18,8 @@
 </head>
 
 <body class="bg-gray-100 font-sans leading-normal tracking-normal w-full flex justify-center items-center">
-
+    <?php include './components/navbar.php'; ?>
+    <!-- <div class="w-full h-full"></div> -->
     <?php include './components/chatbox.php'; ?>
 </body>
 
