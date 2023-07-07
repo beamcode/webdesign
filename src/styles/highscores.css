@@ -6,9 +6,11 @@ body {
 	flex-direction: column;
 	text-align: center;
 }
+
 li {
 	list-style: none;
 }
+
 ul li::marker {
 	font-size: 15rem;
 }
