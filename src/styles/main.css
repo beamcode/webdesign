@@ -1,7 +1,7 @@
 .main {
+  height: 100%;
   width: 100%;
   padding: 15px;
-  margin-left: 50px;
+  margin-left: 0px;
   background-color: #313338;
-  transition: margin-left .5s;
 }

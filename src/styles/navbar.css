@@ -1,29 +1,157 @@
-.sidenav {
-  height: 100%;
-  width: 50px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
+.navMobile {
+  background-color: #1e1f22;
+  width: 100%;
+  height: 50px;
+  transition: 0.5s;
+  display: none;
+  flex-direction: column;
+  align-items: end;
+}
+
+.navMobileWhiteBar {
+  margin-top: 15px;
+  padding-bottom: 5px;
+  border-top: 1px solid white;
+}
+
+.navMobileLogout {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navMobileLinks {
+  overflow: hidden;
+  display: flex;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-direction: column;
+  background-color: #1e1f22;
+  width: 100%;
+  justify-content: space-between;
   transition: 0.5s;
 }
 
-.links {
-  margin: 20px 15px 0px 15px;
+.navMobileLinks a {
+  color: white;
+  padding: 10px 10px 10px 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.navMobileLinks a:hover {
+  color: #f1f1f1;
+  background-color: rgb(95, 94, 94, 0.3);
   transition: 0.3s;
+}
+
+.mobBurgerContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 14.5px;
+  cursor: pointer;
+  transition: 0.5s;
+  gap: 6px;
+}
+
+.mobbar1,
+.mobbar2,
+.mobbar3 {
+  width: 30px;
+  border-radius: 10px;
+  height: 3px;
+  background-color: rgb(169, 169, 169);
+  transition: 0.4s;
+  margin-right: 0px;
+}
+
+.mobchange .mobbar1 {
+  transform: translate(0px, 9px) rotate(-45deg);
+}
+
+.mobchange .mobbar2 {
   opacity: 0;
 }
 
-.links a {
-  padding: 15px 5px 15px 30px;
+.mobchange .mobbar3 {
+  transform: translate(0px, -9px) rotate(45deg);
+}
+
+/* Nav Web CSS */
+.navWeb {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50px;
+  z-index: 1;
+  background-color: #1e1f22;
+  transition: 0.5s;
+}
+
+.navwebContainer {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  margin: 15px;
+  margin-bottom: 10px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.logout {
+  border-top: 1px solid white;
+  cursor: pointer;
+}
+
+.logout span {
+  border-top: 1px solid white;
+}
+
+.logoutItems {
+  display: flex;
+  padding: 10px 10px 10px 5px;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+.logout a {
+  text-align: end;
   text-decoration: none;
-  font-size: 18px;
-  color: #818181;
-  display: block;
+  font-size: 15px;
+  color: white;
   transition: 0.3s;
   border-radius: 10px;
+  white-space: nowrap;
+}
+
+.logoutItems:hover {
+  color: #f1f1f1;
+  background-color: rgb(95, 94, 94, 0.3);
+  transition: 0.3s;
+}
+
+.logout a:hover {
+  pointer-events: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.links a {
+  text-align: end;
+  padding: 10px 15px 10px 30px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  transition: 0.3s;
+  border-radius: 10px;
+  white-space: nowrap;
 }
 
 .links a:hover {
@@ -31,13 +159,14 @@
   background-color: rgb(95, 94, 94, 0.3);
 }
 
-.container {
-  width: 100%;
+.burgerContainer {
+  width: min-content;
   padding: 10px;
   padding-top: 15px;
   align-items: flex-end;
   cursor: pointer;
   display: flex;
+  transition: 0.5s;
   flex-direction: column;
   gap: 6px;
 }
@@ -47,30 +176,45 @@
 .bar3 {
   width: 30px;
   border-radius: 10px;
-  height: 4px;
+  height: 3px;
   background-color: rgb(169, 169, 169);
   transition: 0.4s;
   margin-right: 0px;
 }
 
 .change .bar1 {
-  transform: translate(0px, 10px) rotate(-45deg);
-  margin-right: 4px;
+  transform: translate(0px, 9px) rotate(-45deg);
+  margin-right: 15px;
 }
 
 .change .bar2 {
   opacity: 0;
-  margin-right: 4px;
+  margin-right: 15px;
 }
 
 .change .bar3 {
-  transform: translate(0px, -10px) rotate(45deg);
-  margin-right: 4px;
+  transform: translate(0px, -9px) rotate(45deg);
+  margin-right: 15px;
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav a {
-    font-size: 18px;
-    visibility: hidden;
+@media screen and (max-width: 640px) {
+  .navWeb {
+    display: none;
+    transition: 0s;
+    width: 10px;
+  }
+
+  .navMobile {
+    display: flex;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    transition: 0s;
+  }
+
+  .links {
+    transition: 0s;
   }
 }

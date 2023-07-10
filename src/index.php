@@ -14,18 +14,15 @@
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/main.css">
 
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./api/getMessages.js"></script>
     <script src="./api/sendMessage.js"></script>
 </head>
 
-<body class="flex w-full font-sans">
+<body class="flex flex-col sm:flex-row w-full font-sans">
     <?php include './components/navbar.php'; ?>
     <?php include './components/main.php'; ?>
     <?php include './components/chatbox.php'; ?>
-
-    <!-- <?php include './components/chatbox.php'; ?> -->
 </body>
 
 </html>
