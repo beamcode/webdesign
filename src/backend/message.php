@@ -42,10 +42,10 @@ try {
         $userId = $_SESSION["user_id"];
         $message = $_POST["message"];
         $responseCode = 500;
-    
+
         // Save the message to the database
         $saveResult = saveMessage($userId, $message, $conn);
-    
+
         if ($saveResult) {
             // Message saved successfully
             $response = [
@@ -60,25 +60,25 @@ try {
                 "message" => "Error occurred while saving the data"
             ];
         }
-    
+
         // Send the response as JSON
         http_response_code($responseCode);
         header("Content-Type: application/json");
         echo json_encode($response);
-    
+
         // Debug
         // file_put_contents("post_data.txt", "");
         // file_put_contents("post_data.txt", json_encode($response));
     }
-    
+
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Fetch messages from the database
         $data = getMessages($conn);
         $responseCode = 500;
-    
+
         // Check if any messages were fetched
         if (!empty($data)) {
-    
+
             $responseCode = 200;
             $response = $data;
         } else {
@@ -95,15 +95,14 @@ try {
     }
 } catch (ExceptionWithField $e) {
     // Return to backup point
-    $conn->rollback();
+    // $conn->rollback();
     echo json_encode(['error' => $e->getMessage(), 'field' => $e->getField()]);
 } catch (Exception $e) {
     // Return to backup point
-    $conn->rollback();
+    // $conn->rollback();
     echo json_encode(['error' => $e->getMessage()]);
 } finally {
     if (isset($conn)) {
         $conn->close();
     }
 }
-?>

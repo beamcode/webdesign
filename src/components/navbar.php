@@ -60,8 +60,10 @@
 
         if (window.getComputedStyle(sideNavWeb).getPropertyValue("width") == "50px") {
             sideNavWeb.style.width = "200px";
+            sideNavWeb.style.minWidth = "200px";
             links.style.opacity = 1;
         } else {
+            sideNavWeb.style.minWidth = "50px";
             sideNavWeb.style.width = "50px";
             links.style.opacity = 0;
         }

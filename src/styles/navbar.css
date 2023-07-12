@@ -85,6 +85,7 @@
   flex-direction: column;
   height: 100%;
   width: 50px;
+  min-width: 50px;
   z-index: 1;
   background-color: #1e1f22;
   transition: 0.5s;
@@ -99,6 +100,7 @@
   margin-bottom: 10px;
   height: 100%;
   justify-content: space-between;
+  transition: 0.5s;
 }
 
 .logout {
@@ -141,6 +143,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .links a {
@@ -149,7 +152,7 @@
   text-decoration: none;
   font-size: 15px;
   color: white;
-  transition: 0.3s;
+  /* transition: 0.3s; */
   border-radius: 10px;
   white-space: nowrap;
 }
@@ -160,13 +163,13 @@
 }
 
 .burgerContainer {
-  width: min-content;
+  width: 100%;
   padding: 10px;
   padding-top: 15px;
   align-items: flex-end;
   cursor: pointer;
   display: flex;
-  transition: 0.5s;
+  /* transition: 0.5s; */
   flex-direction: column;
   gap: 6px;
 }
@@ -200,21 +203,9 @@
 @media screen and (max-width: 640px) {
   .navWeb {
     display: none;
-    transition: 0s;
-    width: 10px;
   }
 
   .navMobile {
     display: flex;
-  }
-
-  .bar1,
-  .bar2,
-  .bar3 {
-    transition: 0s;
-  }
-
-  .links {
-    transition: 0s;
   }
 }

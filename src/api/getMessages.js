@@ -7,11 +7,11 @@ function getMessages(scroll = false) {
         messageContainer.innerHTML = "";
         data.forEach(function (value) {
             var messageHtml = `
-            <div class="flex items-start mb-4">
-                <img src="${value.profile_image}" alt="Profile Image" class="w-10 text-sm font-bold rounded-full">
+            <div class="flex items-start mb-5">
+                <img src="${value.profile_image}" alt="Profile Image" class="w-8 text-sm font-bold rounded-full">
                 <div class="ml-4 flex-1 ">
-                    <div class="w-fit text-sm font-bold rounded">${value.username}</div>
-                    <p class="w-full pr-1 rounded overflow-hidden [overflow-wrap:anywhere] break-keep">
+                    <div class="w-fit text-sm mt-[-3px] font-bold rounded">${value.username}</div>
+                    <p class="w-full pr-1 text-xs rounded overflow-hidden [overflow-wrap:anywhere] break-keep">
                         ${value.message}
                     </p>
                 </div>

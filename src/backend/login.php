@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 try {
     $conn = connectToDatabase();
     if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+        $username = filter_var($_POST['username']);
         $password = $_POST['password'];
    
         // Backup point
@@ -48,4 +48,3 @@ try {
         $stmt->close();
     }
 }
-?>
