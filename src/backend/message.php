@@ -5,24 +5,29 @@ session_start();
 // Function to get all messages from the database
 function getMessages($conn)
 {
-    global $conn;
-    $sql = "SELECT ChatMessages.id AS userId, ChatMessages.message, Users.username, Users.profile_image 
-            FROM ChatMessages 
-            INNER JOIN Users ON ChatMessages.user_id = Users.id";
+    $sql = "SELECT ChatMessages.id AS messageId, ChatMessages.message, Users.username, Users.profile_image 
+        FROM ChatMessages 
+        INNER JOIN Users ON ChatMessages.user_id = Users.id
+        ORDER BY ChatMessages.timestamp DESC
+        LIMIT 30";
+
     $result = $conn->query($sql);
+
     if ($result) {
         $data = $result->fetch_all(MYSQLI_ASSOC);
-        $result->close();
+        $result->free_result();
         return $data;
     } else {
-        // Error occurred while fetching messages
+        // Error occurred while executing the query
+        // Handle the error appropriately (e.g., return an error message or log the error)
+        error_log("Database error: " . $conn->error);
         return null;
     }
 }
 // Function to save a new message to the database
 function saveMessage($userId, $message, $conn)
 {
-    $stmt = $conn->prepare("INSERT INTO ChatMessages (user_id, message) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO ChatMessages (user_id, timestamp, message) VALUES (?, CURRENT_TIMESTAMP(), ?)");
     $stmt->bind_param("is", $userId, $message);
     if ($stmt->execute()) {
         // Message saved successfully
@@ -30,6 +35,7 @@ function saveMessage($userId, $message, $conn)
         return true;
     } else {
         // Error occurred while saving the message
+        error_log("fuck");
         $stmt->close();
         return false;
     }
@@ -74,11 +80,13 @@ try {
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Fetch messages from the database
         $data = getMessages($conn);
+
         $responseCode = 500;
 
         // Check if any messages were fetched
+        // $fileContents = json_encode($data);
+        // file_put_contents("message.txt", $fileContents);
         if (!empty($data)) {
-
             $responseCode = 200;
             $response = $data;
         } else {
@@ -88,6 +96,7 @@ try {
                 "message" => "Error occurred while fetching the data from the database"
             ];
         }
+
         // Send the messages as JSON
         http_response_code($responseCode);
         header("Content-Type: application/json");

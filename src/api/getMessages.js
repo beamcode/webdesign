@@ -7,8 +7,8 @@ function getMessages(scroll = false) {
         messageContainer.innerHTML = "";
         data.forEach(function (value) {
             var messageHtml = `
-            <div class="flex items-start mb-5">
-                <img src="${value.profile_image}" alt="Profile Image" class="w-8 text-sm font-bold rounded-full">
+            <div class="flex w-full items-start mb-5">
+                <img src="${value.profile_image}" alt="Profile Image" class="w-8 text-sm font-bold rounded-md">
                 <div class="ml-4 flex-1 ">
                     <div class="w-fit text-sm mt-[-3px] font-bold rounded">${value.username}</div>
                     <p class="w-full pr-1 text-xs rounded overflow-hidden [overflow-wrap:anywhere] break-keep">
@@ -47,7 +47,7 @@ function getMessages(scroll = false) {
                 displayMessages(data)
             }
         })
-        .catch(error => {
+        .catch((error, data) => {
             console.error("An error occurred: ", error);
         })
         .finally(function () {
@@ -63,7 +63,7 @@ function getMessages(scroll = false) {
             } else {
                 setTimeout(function () {
                     getMessages(false);
-                }, 1000);
+                }, 1500);
             }
         });
 }

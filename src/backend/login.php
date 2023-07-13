@@ -1,5 +1,5 @@
 <?php
-require 'connectDB.php';
+require 'connectToDatabase.php';
 require 'ExceptionWithField.php';
 session_start();
 header('Content-Type: application/json');
