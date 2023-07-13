@@ -21,8 +21,6 @@
 
 <body class="flex flex-col sm:flex-row w-full font-sans">
     <?php include './components/navbar.php'; ?>
-    <?php include './components/main.php'; ?>
-    <!-- <?php include './components/chatbox.php'; ?> -->
 </body>
 
 </html>

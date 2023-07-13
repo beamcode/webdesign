@@ -1,5 +1,5 @@
 <?php
-require 'connectToDatabase.php';
+require 'connectDB.php';
 require 'ExceptionWithField.php';
 session_start();
 header('Content-Type: application/json');
@@ -8,7 +8,7 @@ try {
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = filter_var($_POST['username']);
         $password = $_POST['password'];
-   
+
         // Backup point
         $conn->begin_transaction();
         $stmt = $conn->prepare("SELECT id, password FROM Users WHERE username = ?");

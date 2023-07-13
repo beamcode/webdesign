@@ -1,4 +1,4 @@
-<div class="flex flex-col min-h-screen max-h-screen w-[300px] min-w-[300px]">
+<div class="flex flex-col h-full w-[300px] min-w-[300px]">
     <div id="message-container" class="px-4 pt-4 h-full grow bg-gray-900 text-gray-100 overflow-y-auto"></div>
     <form id="ChatForm" method="POST" onsubmit="sendMessage(event);">
         <div class="relative bg-gray-800 px-4 py-4 flex">

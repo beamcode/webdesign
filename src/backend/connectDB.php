@@ -56,10 +56,33 @@ function connectToDatabase()
         return null;
     }
 
-    // Insert sample data into the 'Users' table
-    $sqlInsertUsers = "INSERT INTO Users (username, password, description, profile_image, highscore) VALUES 
-    ('Michel', 'password', 'michel@example.com', 'path/to/profile_picture_of_a_bg.jpg', 12),
-    ('Michel le boss', 'password', 'michel@example.com', 'path/to/profile_picture_of_a_bg.jpg', 200)";
+    // SQL query to create the 'Friends' table
+    $sqlFriends = "CREATE TABLE IF NOT EXISTS Friends (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user_id INT(6) UNSIGNED,
+        friend_id INT(6) UNSIGNED,
+        CONSTRAINT fk_user
+            FOREIGN KEY (user_id)
+            REFERENCES Users (id)
+            ON DELETE CASCADE,
+        CONSTRAINT fk_friend
+            FOREIGN KEY (friend_id)
+            REFERENCES Users (id)
+            ON DELETE CASCADE)";
+
+    // Execute the 'Friends' table query
+    if ($conn->query($sqlFriends) === TRUE) {
+        echo "Table 'Friends' created successfully!";
+    } else {
+        echo "Error creating table 'Friends': " . $conn->error;
+        return null;
+    }
+
+    // Insert sample data into the 'Users' table (ignoring duplicates)
+    $sqlInsertUsers = "INSERT IGNORE INTO Users (username, password, description, profile_image, highscore) VALUES 
+        ('Michel', 'password', 'michel@example.com', 'path/to/profile_picture_of_a_bg.jpg', 12),
+        ('Michel le boss', 'password', 'michel@example.com', 'path/to/profile_picture_of_a_bg.jpg', 200)";
+
 
     // Execute the INSERT statements
     if ($conn->query($sqlInsertUsers) === TRUE) {
