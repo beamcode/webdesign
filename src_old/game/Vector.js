@@ -10,5 +10,4 @@ class Vector {
         return new Vector(this.x * scale, this.y * scale);
     }
 }
-
 export default Vector;

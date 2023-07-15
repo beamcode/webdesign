@@ -1,75 +1,126 @@
 import Vector from './Vector.js';
-import { Player, Lava, Coin } from './Entities.js';
-var actorchars = {
+import { Player, Koopa, Shell, Coin, Star, Goomba, Boo, Surprise } from './Entities.js';
+
+const Types = {
+    // Obstacles
+    WALL: "wall",
+    GROUND: "ground",
+    EARTH: "earth",
+    LAVA: "lava",
+    FLAG: "flag",
+    // Characters
+    PLAYER: "player",
+    COIN: "coin",
+    STAR: "star",
+    SHELL: "shell",
+    GOOMBA: "goomba",
+    KOOPA: "koopa",
+    BOO: "boo",
+    SURPRISE: "surprise",
+    BLOCK: "block"
+}
+
+const actorchars = {
     "@": Player,
-    "o": Coin,
-    "=": Lava,
-    "|": Lava,
-    "v": Lava
+    "O": Coin,
+    "X": Star,
+    "=": Shell,
+    "G": Goomba,
+    "K": Koopa,
+    "B": Boo,
+    "?": Surprise,
 };
+
+const obstaclechars = {
+    "#": Types.WALL,
+    "-": Types.GROUND,
+    "E": Types.EARTH,
+    "!": Types.LAVA,
+    "F": Types.FLAG,
+}
+
 var maxStep = 0.05;
+
 class Level {
-    constructor(plan) {
+    constructor(plan, data) {
         this.width = plan[0].length;
         this.height = plan.length;
         this.grid = [];
         this.actors = [];
+        this.gravity = 150;
+        this.score = data.score;
+        this.coins = data.coins;
+        this.stars = data.stars;
+        this.life = data.life;
         for (var y = 0; y < this.height; y++) {
             var line = plan[y], gridLine = [];
             for (var x = 0; x < this.width; x++) {
-                var ch = line[x], fieldType = null;
+                var ch = line[x];
                 var Actor = actorchars[ch];
-                if (Actor)
+                if (Actor) {
                     this.actors.push(new Actor(new Vector(x, y), ch));
-                else if (ch === "x")
-                    fieldType = "wall";
-                else if (ch === "!")
-                    fieldType = "lava";
-                else if (ch === "|")
-                    fieldType = "lava";
-                else if (ch === "=")
-                    fieldType = "lava";
-                else if (ch === "v") {
-                    fieldType = "lava";
-                    console.log(fieldType);
                 }
-                gridLine.push(fieldType);
+                if (obstaclechars[ch]) {
+                    gridLine.push(obstaclechars[ch]);
+                } else {
+                    gridLine.push(null);
+                }
             }
             this.grid.push(gridLine);
         }
         this.player = this.actors.filter(function (actor) {
-            return actor.type === "player";
+            return actor.type === Types.PLAYER;
         })[0];
         this.status = this.finishDelay = null;
     }
+
+
+
+    collectStar(quantity=1) {
+        this.stars += quantity;
+        this.score += quantity * 50;
+    }
+
+    collectCoin(quantity=1) {
+        this.coins += quantity;
+        this.score += quantity * 10;
+    }
+
     isFinished() {
         return this.status != null && this.finishDelay < 0;
     }
-    playerTouched(type, actor) {
-        if (type == "lava" && this.status == null) {
-            this.status = "lost";
-            this.finishDelay = 1;
-        } else if (type == "coin") {
-            this.actors = this.actors.filter(function (other) {
-                return other != actor;
-            });
-            if (!this.actors.some(function (actor) {
-                return actor.type == "coin";
-            })) {
-                this.status = "won";
-                this.finishDelay = 1;
-            }
-        }
+   
+    setStatusLost() {
+        this.status = "lost";
+        this.finishDelay = 1;
     }
+    
+    setStatusWon() {
+        this.status = "won";
+        this.finishDelay = 1;
+    }
+    
+    removeActor(actor) {
+        this.actors = this.actors.filter(other => other !== actor);
+    }
+
+    addActor(actor) {
+        this.actors.push(actor);
+    }
+    
+    isAllCoinsCollected() {
+        return !this.actors.some(actor => actor.type === Types.COIN);
+    }
+
     obstacleAt(pos, size) {
         var xStart = Math.floor(pos.x);
         var xEnd = Math.ceil(pos.x + size.x);
         var yStart = Math.floor(pos.y);
         var yEnd = Math.ceil(pos.y + size.y);
         if (xStart < 0 || xEnd > this.width || yStart < 0)
-            return "wall";
+            return Types.WALL;
         if (yEnd > this.height)
-            return "lava";
+            return Types.LAVA;
         for (var y = yStart; y < yEnd; y++) {
             for (var x = xStart; x < xEnd; x++) {
                 var fieldType = this.grid[y][x];
@@ -78,23 +129,51 @@ class Level {
             }
         }
     }
-    actorAt(actor) {
-        for (var i = 0; i < this.actors.length; i++) {
-            var other = this.actors[i];
-            if (other != actor && actor.pos.x + actor.size.x > other.pos.x && actor.pos.x < other.pos.x + other.size.x && actor.pos.y + actor.size.y > other.pos.y && actor.pos.y < other.pos.y + other.size.y)
-                return other;
+
+    getHitbox(pos, size) {
+        return {
+            up: Math.round(pos.y * 100.0) / 100.0,
+            down: Math.round((pos.y + size.y) * 100.0) / 100.0,
+            right: pos.x + size.x,
+            left: pos.x,
         }
     }
-    animate(step, keys) {
+
+    actorAt(actor, pos, size) {
+        const hitbox = this.getHitbox(pos, size);
+        for (let i = 0; i < this.actors.length; i++) {
+            const other = this.getHitbox(this.actors[i].pos, this.actors[i].size);
+            if (this.actors[i] !== actor &&
+                hitbox.right >= other.left &&
+                hitbox.left <= other.right &&
+                hitbox.down >= other.up &&
+                hitbox.up <= other.down) {
+                let colision = {
+                    up: other.up < hitbox.up && hitbox.up < other.down,
+                    down: other.up < hitbox.down && hitbox.down < other.down,
+                    left: other.left < hitbox.left && hitbox.left < other.right,
+                    right: other.left < hitbox.right && hitbox.right < other.right,
+                };
+                return {other: this.actors[i], colision: colision};
+            }
+        }
+        return {other: null, colision: null};
+    }
+    
+    animate(deltaTime, dirs) {
         if (this.status != null)
-            this.finishDelay -= step;
-        while (step > 0) {
-            var thisStep = Math.min(step, maxStep);
+            this.finishDelay -= deltaTime;
+        while (deltaTime > 0) {
+            var step = Math.min(deltaTime, maxStep);
             this.actors.forEach(function (actor) {
-                actor.act(thisStep, this, keys);
+                actor.act(step, this, dirs);
             }, this);
-            step -= thisStep;
+            deltaTime -= step;
         }
     }
 }
+
+
 export default Level;
+export { Types };
+

@@ -1,0 +1,87 @@
+:root {
+    /* Fonts */
+    --main-font: 'Roboto Flex', sans-serif;
+
+    /* Font size */
+    --font-size-xs: 0.8rem;
+    --font-size-sm: 0.9rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+
+    /* Font variation settings */
+    --font-variation-settings-default: "wght" 400;
+    --font-variation-settings-bold: "wght" 800;
+
+    --font-variation-settings-normal: 'GRAD' 150, 'wght' 100;
+    --font-variation-settings-hover: 'GRAD' 150, 'wght' 500;
+    --font-variation-settings-active: 'GRAD' 150, 'wght' 100;
+
+    /* Colors */
+    --primary-color: #EB4C76;
+    --secondary-color: #0F1A20;
+    --accent-color: #ffdbdb;
+    --text-color: #1c1c1e;
+    --overlay-bg-color: rgba(0, 0, 0, 0.5);
+    --primary-background-color: #F9EFF2;
+    --secondary-background-color: #ffffff;
+    --tags-color: #d5d1f1;
+
+    /* Glassmorphism */
+    --glassmorphism-background-color: rgba( 255, 255, 255, 0.15 );
+    --glassmorphism-box-shadow: 0 2px 8px 0 rgba( 31, 38, 135, 0.37 );
+    --glassmorphism-blur: blur( 4.5px );
+    --glassmorphism-border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    /* Shadows */
+    --box-shadow: var(--glassmorphism-box-shadow);
+
+    /* Border */
+    --border: var(--glassmorphism-border);
+    --border-radius-md: 1rem;
+    --border-radius-sm: 0.8rem;
+    --border-radius-xs: 0.4rem;
+    --border-radius-xxs: 0.2rem;
+
+    /* Spacer */
+    --spacer-xxs: 0.2rem;
+    --spacer-xs: 0.5rem;
+    --spacer-sm: 0.7rem;
+    --spacer-md: 1rem;
+    --spacer-lg: 1.5rem;
+    --spacer-xl: 2rem;
+    --spacer-xxl: 4rem;
+
+    /* Transition */
+    --duration-xxfast: 52ms;
+    --duration-xfast: 84ms;
+    --duration-fast: 132ms;
+    --duration-moderate: 216ms;
+    --duration-slow: 336ms;
+    --duration-xslow: 560ms;
+    --duration-xxslow: 916ms;
+    --duration-xxxslow: 1486ms;
+
+    /* Sizes */
+    --base-font-size: 1rem;
+    /* --page-width: 140rem; */
+    --page-width: 100rem;
+
+    /* Scrollbar */
+    --scrollbar-bg-color: #ccc;
+    --scrollbar-thumb-color: var(--primary-color);
+}
+
+/* ------------------------------------------
+Scrollbar styling
+------------------------------------------ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: var(--scrollbar-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+}
