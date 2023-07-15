@@ -13,7 +13,7 @@ class Game {
 
     init() {
         this.data = {
-            life: 1,
+            life: 3,
             levelNum: 0,
             score: 0,
             coins: 0,

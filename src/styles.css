@@ -142,7 +142,7 @@ Sidebar
 } */
 
 .sidebar:not(.collapsed) {
-    z-index: 2;
+    z-index: 5;
     min-width: 250px;
     flex-grow: 1;
     width: 100%;

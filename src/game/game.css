@@ -75,7 +75,7 @@ h2 {
   width: 100%;
   bottom: 16px;
   left: 0;
-  z-index: 200; 
+  z-index: 1;
   padding: 10px;
 }
 
@@ -90,9 +90,11 @@ h2 {
 .controls .button-right,
 .controls .button-jump {
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
-  height: 32px;
-  width: 32px;
+  height: 64px;
+  width: 64px;
   background-color: var(--second-color);
   box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
   color: white;
