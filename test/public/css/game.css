@@ -1,0 +1,596 @@
+@font-face {
+  font-family: 'Super Mario Bros Wii';
+  src: url("../assets/fonts/SuperMarioBrosWii.otf") format("opentype");
+}
+
+:root {
+  --main-color: #5865f2;
+  --second-color: #db5554;
+  --star-shadow: #ffdd00;
+  --background-color: #313338;
+  /* --cup: url(./icons/cup.svg); */
+  --score: url(../assets/images/score.png);
+  --skin: url(../assets/images/skin0.png);
+  --goomba: url(../assets/images/goomba.png);
+  --koopa: url(../assets/images/koopa.png);
+  --shell: url(../assets/images/shell.png);
+  --wall: url(../assets/images/wall.png);
+  --star: url(../assets/images/star.png);
+  --coin: url("https://64.media.tumblr.com/34ecb97af549396ce54461835a63d1b3/1fe59baa06bb8c17-d9/s540x810/041f293db97d977df5ccd2cd8b94995aa2f9a34a.gif");
+  --flag: url(../assets/images/flag.png);
+  --lava: url(../assets/images/lava.png);
+  --ground: url(../assets/images/ground.png);
+  --earth: url(../assets/images/earth.png);
+  --boo: url(../assets/images/boo.png);
+  --surprise: url(../assets/images/surprise.png);
+  --block: url(../assets/images/block.png);
+  --heart: url(../assets/images/heart.png);
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+h2 {
+  /* font-weight: 600; */
+  font-family: 'Super Mario Bros Wii';
+  -webkit-text-stroke: 0.2rem #1a1a1c;
+  font-size: 4rem;
+  text-align: center;
+  --offset-3d: 0.14vmin;
+  --color-stroke-3d: #1a1a1c;
+  text-shadow: 0px 0px 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 1) calc(var(--offset-3d) * 1) 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 2) calc(var(--offset-3d) * 2) 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 3) calc(var(--offset-3d) * 3) 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 4) calc(var(--offset-3d) * 4) 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 5) calc(var(--offset-3d) * 5) 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 6) calc(var(--offset-3d) * 6) 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 7) calc(var(--offset-3d) * 7) 0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 8) calc(var(--offset-3d) * 8)  0 var(--color-stroke-3d),
+  calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 10px rgba(0,0,0,0),
+  calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 1px rgba(0,0,0,0.5),
+  calc(var(--offset-3d) * 0) calc(var(--offset-3d) * 0) 10px rgba(0,0,0,.2);
+}
+
+
+
+
+
+
+
+
+
+
+/* Styles pour la div qui contient tous les boutons de contrôle */
+
+.controls.hidden {
+  display: none;
+}
+
+.controls {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 16px;
+  left: 0;
+  z-index: 1;
+  padding: 10px;
+}
+
+/* Styles pour les boutons de gauche, droite et sauter */
+.button-right-left {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.controls .button-left,
+.controls .button-right,
+.controls .button-jump {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 64px;
+  width: 64px;
+  background-color: var(--second-color);
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+}
+
+/* Styles spécifiques pour le bouton de saut */
+.controls .button-jump {
+  align-self: flex-start;
+}
+
+/* Styles spécifiques pour les boutons de gauche et droite */
+.controls .button-left,
+.controls .button-right {
+  display: flex;
+  flex-direction: column;
+}
+
+
+canvas {
+  /* width: 100%; */
+  border: solid 10px red;
+}
+
+
+
+
+
+
+
+/* --------------------------------------
+Characters
+-------------------------------------- */
+
+.cell,
+.character {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.character {
+  position: absolute;
+}
+
+.wall {
+  background-image: var(--wall);
+}
+
+.ground {
+  background-image: var(--ground);
+}
+
+.earth {
+  background-image: var(--earth);
+}
+
+.lava {
+  background-image: var(--lava);
+}
+
+.flag {
+  background-image: var(--flag);
+  filter: hue-rotate(140deg) brightness(140%);
+}
+.won .flag {
+  filter: hue-rotate(0deg) brightness(100%);
+}
+
+.player {
+  background-image: var(--skin);
+  /* filter: drop-shadow(0 0 10px var(--star-shadow)); */
+}
+
+.coin {
+  background-image: var(--coin);
+}
+
+.star {
+  background-image: var(--star);
+  filter: drop-shadow(0 0 10px var(--star-shadow));
+}
+.shell {
+  background-image: var(--shell);
+}
+.goomba {
+  background-image: var(--goomba);
+}
+
+.koopa {
+  background-image: var(--koopa);
+}
+.boo {
+  background-image: var(--boo);
+}
+
+.surprise {
+  background-image: var(--surprise);
+}
+.block {
+  background-image: var(--block);
+}
+
+/* --------------------------------------
+HUD
+-------------------------------------- */
+.hud-wrapper {
+  /* color: var(--star-shadow); */
+  /* line-height: 0.5rem; */
+  --height-line: 1rem;
+  top: 0;
+  width: calc(100% - 2rem);
+  margin-inline: 1rem;
+  /* position: absolute; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  line-height: var(--height-line);
+  color: #2d2d34;
+  position: sticky;
+  left: 1rem;
+  flex: 1;
+}
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  gap: 1rem;
+  background-color: #54575e;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  margin-top: 0.4rem;
+  /* overflow: hidden; */
+  /* box-shadow: 0px 0px 100% 1rem rgba(0,0,0,0.75) inset;
+  -webkit-box-shadow: 0px 0px 100% 1rem rgba(0,0,0,0.75) inset;
+  -moz-box-shadow: 0px 0px 100% 1rem rgba(0,0,0,0.75) inset; */
+
+}
+
+.hud .score,
+.hud .stars,
+.hud .coins
+ {
+  position: relative;
+  padding-left: calc(var(--height-line) + 0.5rem);
+
+  }
+.hud .score::before,
+.hud .stars::before,
+.hud .coins::before {
+  content: "";
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  width: var(--height-line);
+  height: var(--height-line);
+  left: 0;
+  filter: drop-shadow(0 0 12px var(--star-shadow));
+}
+
+.hud .score::before {
+  background-image: var(--score);
+}
+
+.hud .stars::before {
+  background-image: var(--star);
+}
+
+.hud .coins::before {
+  background-image: var(--coin);
+}
+
+.hearts {
+  display: flex;
+  /* position: absolute; */
+  gap: 0.4rem;
+  padding: 0.4rem 0;
+  margin-top: 0.4rem;
+}
+
+.heart {
+  content: "";
+  background-image: var(--heart);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 1rem;
+}
+/* --------------------------------------
+Game
+-------------------------------------- */
+.background {
+  table-layout: fixed;
+  border-spacing: 0;
+}
+
+.background td {
+  padding: 0;
+}
+
+.game {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #313338;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.game-view {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.map-wrapper {
+  flex: 4;
+  position: relative;
+  display: flex;
+}
+
+/* --------------------------------------
+Menu
+-------------------------------------- */
+
+.win,
+.lose {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.win {
+  background-image: url(https://images3.alphacoders.com/129/1292576.jpeg);
+}
+
+.lose {
+  background-image: url(https://geekculture.co/wp-content/uploads/2023/04/super-mario-bros.jpg);
+}
+
+.win,
+.lose,
+.game-menu {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  padding-inline: 2vmin;
+}
+
+.win h1, .lose h1 {
+  font-size: 6rem;
+  color: var(--second-color);
+  text-shadow: 2px 2px 0px #000000;
+}
+
+#skins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+#skins img {
+  width: 32px;
+  /* max-width: 4rem; */
+  transition: transform 250ms;
+  position: relative;
+}
+
+.skin-button:hover:not(.active) > img {
+  transform: scale(1.1);
+  /* animation: squeeze 0.9s ease; */
+
+}
+
+.skin-button {
+  position: relative;
+  background-color: transparent;
+  /* flex-grow: 1; */
+  /* margin: 0 10px; */
+  padding: 8px;
+  border: none;
+  border: solid 2px #4e5053;
+  border-radius: 12px;
+  transition: border 2s;
+}
+
+.skin-button.active {
+  border: solid 2px var(--star-shadow);
+  border-radius: 12px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--second-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 250ms;
+}
+ 
+ .btn:hover {
+  box-shadow: 7px 5px 56px -14px var(--second-color);
+ }
+ 
+ .btn:active {
+  transform: scale(0.97);
+  box-shadow: 7px 5px 56px -10px var(--second-color);
+ }
+
+/* .btn {
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  background-color: #DB5554;
+}
+
+
+.btn {
+  padding: 0.7rem 2rem;
+  background: transparent;
+  border: 2px solid #DB5554;
+  border-radius: 12px;
+  color: #DB5554;
+  font-size: 1rem;
+  transition: all .5s ease;
+ }
+ 
+.btn:hover {
+  background: #DB5554;
+  color: #ffffff;
+  animation: squeeze 0.9s both;
+}
+
+.btn:active {
+  transform: scale(.9);
+  transition: all 100ms ease;
+} */
+ 
+
+.skin-button {
+  position: relative;
+  /* padding: 12px 35px; */
+  transition: all .3s ease-in-out;
+}
+
+.star-animation {
+  position: absolute;
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: var(--star);
+  filter: drop-shadow(0 0 0 var(--star-shadow));
+  z-index: -5;
+  width: 0;
+  height: 0;
+}
+
+
+
+.star-1 {
+  top: 30%;
+  left: 30%;
+  z-index: -5;
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+  top: 45%;
+  left: 45%;
+  filter: drop-shadow(0 0 0 var(--star-shadow));
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+  top: 40%;
+  left: 40%;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+  top: 20%;
+  left: 40%;
+  transition: all .8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+  top: 25%;
+  left: 45%;
+  transition: all .6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+  top: 5%;
+  left: 50%;
+  transition: all .8s ease;
+}
+
+.skin-button:hover .star-animation {
+  filter: drop-shadow(0 0 10px var(--star-shadow));
+  z-index: 2;
+}
+
+.skin-button:hover .star-1 {
+  top: -50%;
+  left: -30%;
+  width: 25px;
+  height: 25px;
+}
+
+.skin-button:hover .star-2 {
+  top: -15%;
+  left: 10%;
+  width: 12px;
+  height: 12px;
+}
+
+.skin-button:hover .star-3 {
+  top: 55%;
+  left: 25%;
+  width: 5px;
+  height: 5px;
+}
+
+.skin-button:hover .star-4 {
+  top: 30%;
+  left: 80%;
+  width: 8px;
+  height: 8px;
+}
+
+.skin-button:hover .star-5 {
+  top: 25%;
+  left: 115%;
+  width: 15px;
+  height: 15px;
+}
+
+.skin-button:hover .star-6 {
+  top: 5%;
+  left: 60%;
+  width: 5px;
+  height: 5px;
+}
+
+
+@keyframes squeeze {
+  0% {
+   -webkit-transform: scale3d(1, 1, 1);
+   transform: scale3d(1, 1, 1);
+  }
+ 
+  30% {
+   -webkit-transform: scale3d(1.25, 0.75, 1);
+   transform: scale3d(1.25, 0.75, 1);
+  }
+ 
+  40% {
+   -webkit-transform: scale3d(0.75, 1.25, 1);
+   transform: scale3d(0.75, 1.25, 1);
+  }
+ 
+  50% {
+   -webkit-transform: scale3d(1.15, 0.85, 1);
+   transform: scale3d(1.15, 0.85, 1);
+  }
+ 
+  65% {
+   -webkit-transform: scale3d(0.95, 1.05, 1);
+   transform: scale3d(0.95, 1.05, 1);
+  }
+ 
+  75% {
+   -webkit-transform: scale3d(1.05, 0.95, 1);
+   transform: scale3d(1.05, 0.95, 1);
+  }
+ 
+  100% {
+   -webkit-transform: scale3d(1, 1, 1);
+   transform: scale3d(1, 1, 1);
+  }
+ }
