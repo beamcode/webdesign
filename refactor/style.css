@@ -1,0 +1,219 @@
+/* ######################################
+Layout
+###################################### */
+
+.scaffold-layout {
+    display: flex;
+}
+
+.scaffold-layout-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+.scaffold-layout-main {
+    display: flex;
+    flex-direction: column;
+    /* flex-grow: 3; */
+    height: 100vh;
+    width: 100%;
+    padding-inline: var(--spacer-md);
+}
+
+.scaffold-layout-content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding-bottom: var(--spacer-md);
+}
+
+.scaffold-layout-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 250ms ease;
+    background-color: #1E1F22;
+}
+
+.scaffold-layout-sidebar:not(.collapsed) {
+    z-index: 5;
+    flex-grow: 1;
+    width: 100%;
+    min-width: 250px;
+    padding-inline: var(--spacer-md);
+}
+
+.scaffold-layout-sidebar.collapsed {
+    z-index: 1;
+    flex-grow: 0;
+    width: 0;
+    min-width: 0;
+    padding: var(--spacer-md) 0;
+}
+
+.scaffold-layout-sidebar.right {
+    left: auto;
+    right: 0;
+}
+
+/* ######################################
+Side & Main
+###################################### */
+
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ######################################
+Menu
+###################################### */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-grow: 1;
+    gap: 8px;
+}
+
+/* ######################################
+Button
+###################################### */
+
+.button {
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    padding: 4px 8px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 250ms ease-in-out;
+}
+
+.button:not(.icon):hover {
+    background-color: var(--secondary-color);
+}
+
+.button:not(.icon):disabled {
+    background-color: var(--disabled-color);
+}
+
+.button.icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: transparent;
+    color: white;
+    padding: 2px;
+}
+
+.button.icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.button.icon:hover {
+    color: #5c5e66;
+}
+
+/* ######################################
+Anchor (link)
+###################################### */
+
+.anchor.icon {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: white;
+    align-items: center;
+}
+
+.anchor.icon:hover {
+    background-color: rgba(255, 255, 255, 0.113);
+}
+
+/* .anchor.icon.active {
+    background-color: rgba(255, 255, 255, 0.113);
+} */
+
+/* ######################################
+Input
+###################################### */
+
+.input {
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    align-items: center;
+    border-radius: 4px;
+    color: white;
+    background-color: #313338;
+    transition: 300ms ease-in-out;
+    /* outline: 3px solid transparent; */
+    box-shadow: var(--box-shadow-inset);
+}
+
+.input input {
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding-inline: 8px;
+    background-color: transparent;
+}
+
+.input input:focus {
+    outline: none;
+}
+
+.input svg {
+    height: 1.2rem;
+    width: 1.2rem;
+    height: 100%;
+    margin-right: 8px;
+    color: #b4b4b4;
+}
+
+
+/* ######################################
+Desktop & Tablet
+###################################### */
+@media screen and (min-width: 600px) {
+    :root {
+        --spacer-md: 8px;
+        /* --width-side: 100%; */
+    }
+
+    .scaffold-layout-sidebar {
+        position: sticky;
+    }
+
+    .scaffold-layout-sidebar.right:not(.collapsed) {
+        padding-left: 0;
+        /* flex-grow: 2; */
+        min-width: 350px;
+        width: min(100%, 350px);
+    }
+
+    .scaffold-layout-sidebar.left:not(.collapsed) {
+        padding-right: 0;
+        width: 250px;
+    }
+
+}

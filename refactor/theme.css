@@ -1,0 +1,103 @@
+:root {
+    /* Fonts */
+    --main-font: 'Roboto Flex', sans-serif;
+
+    /* Colors */
+    --primary-color: #EB4C76;
+    --secondary-color: #513ea6;
+    --disabled-color: #3b3e43;
+    --text-color: #1c1c1e;
+    --background-color: #f8f8f8;
+    --border-color: var(--primary-color);
+    --menu-text-color: var(--text-color);
+    --menu-bg-color: #FDE9EE;
+    --button-border-color: #007BFF;
+    --overlay-bg-color: rgba(0, 0, 0, 0.5);
+
+    /* Spacer */
+    --spacer-xs: 0.5rem;
+    --spacer-sm: 0.7rem;
+    --spacer-md: 1rem;
+    --spacer-lg: 1.5rem;
+    --spacer-xl: 2rem;
+    --spacer-xxl: 4rem;
+
+    /* Contrasting background, action text, emphasis 1, emphasis 2 */
+    --contrasting-background: #FFFFFF;
+    --action-text: var(--primary-color);
+
+    /* Spacing */
+    --base-spacing: 1em;
+
+    /* Sizes */
+    --base-font-size: 1rem;
+    --page-width: 140rem;
+
+    /* Borders */
+    --base-border: 1px solid var(--border-color);
+
+    /* Border Radius */
+    --base-border-radius: 10px;
+
+    /* Box Shadow */
+    --box-shadow-inset: inset 0px 0px 4px 0px rgba(0,0,0,0.5);
+    --box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+
+    /* Menu */
+    --menu-height: 4rem;
+    --menu-width: 250px;
+
+    /* Scrollbar */
+    --scrollbar-bg-color: #ccc;
+    --scrollbar-thumb-color: var(--primary-color);
+}
+
+::-webkit-scrollbar {
+    height: 1rem;
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    --tw-border-opacity: 1;
+    background-color: rgba(217, 217, 227, 0.2);
+    border-color: rgba(255,255,255,var(--tw-border-opacity));
+    border-radius: 9999px;
+    border-width: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #5865F2;
+    text-decoration: none;
+}
+
+hr {
+    width: 100%;
+    border-top: 1.5px solid;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+    background-color: #313338;
+    color: white;
+}
