@@ -15,12 +15,12 @@
     --overlay-bg-color: rgba(0, 0, 0, 0.5);
 
     /* Spacer */
-    --spacer-xs: 0.5rem;
-    --spacer-sm: 0.7rem;
-    --spacer-md: 1rem;
-    --spacer-lg: 1.5rem;
-    --spacer-xl: 2rem;
-    --spacer-xxl: 4rem;
+    --spacer-xs: 1px;
+    --spacer-sm: 2px;
+    --spacer-md: 4px;
+    --spacer-lg: 8px;
+    --spacer-xl: 12px;
+    --spacer-xxl: 16px;
 
     /* Contrasting background, action text, emphasis 1, emphasis 2 */
     --contrasting-background: #FFFFFF;
@@ -52,6 +52,25 @@
     --scrollbar-thumb-color: var(--primary-color);
 }
 
+/* ######################################
+Desktop & Tablet
+###################################### */
+
+@media screen and (min-width: 600px) {
+    :root {
+        --spacer-xs: 2px;
+        --spacer-sm: 4px;
+        --spacer-md: 8px;
+        --spacer-lg: 12px;
+        --spacer-xl: 16px;
+        --spacer-xxl: 20px;
+    }
+}
+
+/* ######################################
+Scroll bar
+###################################### */
+
 ::-webkit-scrollbar {
     height: 1rem;
     width: 0.5rem;
@@ -72,6 +91,10 @@
 *, ::after, ::before {
     box-sizing: border-box;
 }
+
+/* ######################################
+Tags
+###################################### */
 
 ul, ol {
     list-style: none;
@@ -98,6 +121,6 @@ body {
     margin: 0;
     padding: 0;
     /* overflow-x: hidden; */
-    background-color: #313338;
+    background-color: #1E1F22;
     color: white;
 }
