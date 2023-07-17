@@ -4,24 +4,24 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($uri) {
     case '/':
-        require_once './views/layout.php';
         $content = 'home';
+        require_once './views/layout.php';
         break;
     case '/profile':
-        require_once './views/layout.php';
         $content = 'profile';
+        require_once './views/layout.php';
         break;
     case '/score':
-        require_once './views/layout.php';
         $content = 'score';
+        require_once './views/layout.php';
         break;
     case '/shop':
-        require_once './views/layout.php';
         $content = 'shop';
+        require_once './views/layout.php';
         break;
     case '/game':
-        require_once './views/layout.php';
         $content = 'game';
+        require_once './views/layout.php';
         break;
     case '/login':
         require_once './views/login.php';
