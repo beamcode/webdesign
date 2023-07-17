@@ -4,19 +4,30 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($uri) {
     case '/':
+        require_once './views/layout.php';
         $content = 'home';
         break;
     case '/profile':
+        require_once './views/layout.php';
         $content = 'profile';
         break;
     case '/score':
+        require_once './views/layout.php';
         $content = 'score';
         break;
     case '/shop':
+        require_once './views/layout.php';
         $content = 'shop';
         break;
     case '/game':
+        require_once './views/layout.php';
         $content = 'game';
+        break;
+    case '/login':
+        require_once './views/login.php';
+        break;
+    case '/signup':
+        require_once './views/signup.php';
         break;
     default:
         header('HTTP/1.1 404 Not Found');
@@ -24,6 +35,3 @@ switch ($uri) {
         echo $uri;
         exit();
 }
-
-require_once './views/layout.php';
-?>

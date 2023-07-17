@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Inscription</title>
-    <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
     <div class="form-container">
         <form class="form" method="POST">
@@ -27,7 +29,8 @@
             <p class="signin">Don't have an account ? <a href="./signup.html">Sign up</a></p>
         </form>
     </div>
-    <script src="../script/togglePassword.js"></script>
-    <script src="../api/login.js"></script>
+    <script src="../controllers/togglePassword.js"></script>
+    <script src="../controllers/login.js"></script>
 </body>
+
 </html>
