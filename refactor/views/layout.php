@@ -25,7 +25,7 @@
                 <?php require_once 'views/components/header.php'; ?>
             </header>
             <div class="scaffold-layout-content">
-                <?php require_once "views/{$content}.php"; ?>
+                <?php require_once "views/{$view}.php"; ?>
             </div>
         </main>
 

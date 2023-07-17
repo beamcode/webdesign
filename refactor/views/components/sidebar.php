@@ -1,5 +1,7 @@
 <?php
 function SideBar($content, $close) {
+    // add to give $content access to the menu
+    global $view;
 ?>
     <div class="sidebar">
         <div class="sidebar-header">
