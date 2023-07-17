@@ -46,7 +46,6 @@ Layout
     flex-grow: 1;
     width: 100%;
     min-width: 250px;
-    padding-inline: var(--spacer-md);
 }
 
 .scaffold-layout-sidebar.collapsed {
@@ -54,7 +53,6 @@ Layout
     flex-grow: 0;
     width: 0;
     min-width: 0;
-    padding: var(--spacer-md) 0;
 }
 
 .scaffold-layout-sidebar.right {
@@ -66,6 +64,15 @@ Layout
 Side & Main
 ###################################### */
 
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 8px;
+    padding: var(--spacer-md);
+}
+
 .sidebar-header {
     display: flex;
     justify-content: flex-end;
@@ -75,6 +82,8 @@ Side & Main
 .sidebar-content {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    gap: 8px;
 }
 
 /* ######################################
@@ -165,8 +174,9 @@ Input
     color: white;
     background-color: #313338;
     transition: 300ms ease-in-out;
-    /* outline: 3px solid transparent; */
+    outline: 3px solid transparent;
     box-shadow: var(--box-shadow-inset);
+    border-radius: 4px;
 }
 
 .input input {
@@ -180,6 +190,10 @@ Input
 
 .input input:focus {
     outline: none;
+}
+
+.input:focus {
+    outline: 3px solid #5865F2;
 }
 
 .input svg {
