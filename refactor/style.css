@@ -18,8 +18,8 @@ Layout
 .scaffold-layout-main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     width: 100%;
+    min-height: 100vh;
     padding-inline: var(--spacer-md);
 }
 
@@ -268,6 +268,30 @@ Input
     color: #b4b4b4;
 }
 
+/* ######################################
+Profile
+###################################### */
+
+.text-game {
+    font-family: 'Super Mario Bros Wii';
+    -webkit-text-stroke: 0.08rem #1a1a1c;
+    font-size: 2rem;
+    text-align: center;
+    --offset-3d: 0.14vmin;
+    --color-stroke-3d: #1a1a1c;
+    text-shadow: 0px 0px 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 1) calc(var(--offset-3d) * 1) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 2) calc(var(--offset-3d) * 2) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 3) calc(var(--offset-3d) * 3) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 4) calc(var(--offset-3d) * 4) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 5) calc(var(--offset-3d) * 5) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 6) calc(var(--offset-3d) * 6) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 7) calc(var(--offset-3d) * 7) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 8) calc(var(--offset-3d) * 8)  0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 10px rgba(0,0,0,0),
+    calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 1px rgba(0,0,0,0.5),
+    calc(var(--offset-3d) * 0) calc(var(--offset-3d) * 0) 10px rgba(0,0,0,.2);
+}
 
 /* ######################################
 Desktop & Tablet
@@ -278,6 +302,8 @@ Desktop & Tablet
     }
 
     .scaffold-layout-sidebar {
+        top: 0;
+        bottom: 0;
         position: sticky;
     }
 

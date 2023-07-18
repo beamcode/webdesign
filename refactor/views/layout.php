@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="views/game/game.css">
 </head>
 <body>
     <?php
@@ -34,5 +36,6 @@
         </aside>
     </div>
     <script src="../script.js"></script>
+    <script type="module" src="views/game/script.js"></script>
 </body>
 </html>
