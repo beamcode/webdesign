@@ -1,6 +1,6 @@
 function InsertHighscores() {
 	let lastData = [];
-	fetch("../backend/highscores.php", {
+	fetch("../models/highscores.php", {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
