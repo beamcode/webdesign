@@ -6,8 +6,8 @@ require_once 'database.php';
 function getHighscores($db)
 {
 	$sql = "SELECT Users.username, Users.profile_image, Users.highscore, Users.description
-						FROM Users 
-						ORDER BY Users.highscore DESC";
+					FROM Users
+						ORDER BY Users.highscore DESC LIMIT 10";
 	$result = $db->query($sql);
 	// Check if the query was successful
 	if ($result) {
