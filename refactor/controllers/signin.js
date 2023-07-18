@@ -8,6 +8,7 @@ document.querySelector('.form').addEventListener('submit', function (e) {
     })
         .then(response => response.json())
         .then(data => {
+            console.log('Response from signin.php:', data);
             // Reset error messages
             usernameError.textContent = '';
             passwordError.textContent = '';
@@ -27,5 +28,9 @@ document.querySelector('.form').addEventListener('submit', function (e) {
                 // Redirect when login is successful
                 window.location.href = './home';
             }
+        })
+        .catch(error => {
+            console.error('An error occurred:', error);
+            // Handle the error, display an error message, or perform any other necessary actions.
         });
 });

@@ -28,7 +28,7 @@ if ($db->connect_error) {
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(30) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
-        description VARCHAR(255),
+        description VARCHAR(255) DEFAULT 'I love this website!',
         highscore INT(6) UNSIGNED DEFAULT 0,
         profile_image VARCHAR(255) DEFAULT '../assets/uploads/profile/default_profile.png',
         banner_image VARCHAR(255) DEFAULT '../assets/uploads/profile/default_banner.png',
