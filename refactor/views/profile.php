@@ -46,35 +46,43 @@
             ></label>
         </div>
         <div class="profile-menu">
-            <!-- <a class="profile-menu-link ">Overview</a> -->
-            <!-- <a class="profile-menu-link">Statistics</a> -->
             <a class="profile-menu-link">Achievements</a>
             <a class="profile-menu-link">Friends</a>
-            <!-- <a class="profile-menu-link">Customization</a> -->
-            <!-- <a class="profile-menu-link">Friends</a> -->
             <a class="profile-menu-link edit-profile" onclick="toggleEditMode()">Edit Profile</a>
             <a class="profile-menu-link save-profile" onclick="saveChanges()" style="display: none;">Save Changes</a>
         </div>
     </div>
-    <div class="timeline">
-        <div class="timeline-left">
-            <div class="intro box">
-            <div class="intro-title">
-                Introduction
+    <div class="profile-feed">
+        <div class="profile-feed-left">
+            <div class="info-box">
+                <h1 class="info-box-title">
+                    Introduction
+                </h1>
+                <p id="profile-description" class="info-box-description" contenteditable="false">
+                    Michel 34 ans
+                </p>
             </div>
-            <p class="profile-description" contenteditable="false"></p>
-            </div>
-            <div class="pages box">
-            <div class="intro-title">
-                Coucou
-            </div>
+            <div class="info-box">
+                <h1 class="info-box-title">
+                    Player information
+                </h1>
+                <p class="info-box-description">
+                    Michel 34 ans
+                </p>
+                <ul>
+                    <li>
+                        <img src="" alt="" srcset="">
+                        <p>score</p>
+                    </li>
+                </ul>
+                
             </div>
         </div>
-        <div class="timeline-right">
-            <div class="pages box">
+        <div class="profile-feed-right">
+            <div class="info-box">
             coucou
             </div>
-            <div class="pages box">
+            <div class="info-box">
             coucou
             </div>
         </div>
