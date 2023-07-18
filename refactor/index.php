@@ -1,9 +1,14 @@
 <?php
+require_once 'models/database.php';
+require_once 'models/ExceptionWithField.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($uri) {
     case '/':
+        require_once './views/signin.php';
+        break;
+    case '/home':
         $view = 'home';
         require_once './views/layout.php';
         break;
@@ -23,8 +28,8 @@ switch ($uri) {
         $view = 'game';
         require_once './views/layout.php';
         break;
-    case '/login':
-        require_once './views/login.php';
+    case '/signin':
+        require_once './views/signin.php';
         break;
     case '/signup':
         require_once './views/signup.php';
