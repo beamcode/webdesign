@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Inscription</title>
+    <title>SignIn</title>
     <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -26,11 +26,11 @@
             <span id="password-error" class="error-message"></span>
             <p><a href="https://www.youtube.com/watch?v=eCKzNkW5GMI">Forgot password?</a></p>
             <button class="submit">Connection</button>
-            <p class="signin">Don't have an account ? <a href="./signup.html">Sign up</a></p>
+            <p class="signin">Don't have an account ? <a href="./signup">Sign Up</a></p>
         </form>
     </div>
     <script src="../controllers/togglePassword.js"></script>
-    <script src="../controllers/login.js"></script>
+    <script src="../controllers/signin.js"></script>
 </body>
 
 </html>
