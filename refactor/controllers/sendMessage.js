@@ -3,21 +3,24 @@ function sendMessage(event) {
     const form = event.target;
     const formData = new FormData(event.target);
     // Send the form data to the PHP backend
-    fetch("../backend/message.php", {
+    fetch("../models/messageSystem.php", {
         method: "POST",
         body: formData
     })
-        .then(response => {
+        .then(async response => {
             if (response.ok) {
                 // Reset input fields on success 
                 form.reset();
                 getMessages(true);
+                return response.json();
             } else {
                 // Display error message on failure
-                return response.json().then(error => {
-                    throw new Error(error.message);
-                });
+                const error = await response.json();
+                throw new Error(error.message);
             }
+        })
+        .then(data => {
+            console.log(data)
         })
         .catch(error => {
             console.error("An error occurred: ", error);
