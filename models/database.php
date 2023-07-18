@@ -30,8 +30,8 @@ if ($db->connect_error) {
         password VARCHAR(255) NOT NULL,
         description VARCHAR(255) DEFAULT 'I love this website!',
         highscore INT(6) UNSIGNED DEFAULT 0,
-        profile_image VARCHAR(255) DEFAULT '../assets/uploads/profile/default_profile.png',
-        banner_image VARCHAR(255) DEFAULT '../assets/uploads/profile/default_banner.png',
+        profile_image VARCHAR(255) DEFAULT 'views/assets/images/default_profile.png',
+        banner_image VARCHAR(255) DEFAULT 'views/assets/images/default_banner.png',
         friends_ids VARCHAR(255)
     )";
 
