@@ -7,7 +7,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($uri) {
     case '/':
-        require_once './views/signin.php';
+        header('Location: /signin');
+        exit();
         break;
     case '/home':
         $view = 'home';
@@ -34,6 +35,9 @@ switch ($uri) {
         break;
     case '/signup':
         require_once './views/signup.php';
+        break;
+    case '/signout':
+        require_once './views/signout.php';
         break;
     default:
         header('HTTP/1.1 404 Not Found');

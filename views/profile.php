@@ -31,23 +31,20 @@ refreshUserData($_SESSION['user_id']);
         <div class="profile-feed-left">
             <div class="info-box">
                 <h1 class="info-box-title">
-                    Introduction
+                    About me
                 </h1>
-                <p id="profile-description" class="info-box-description" contenteditable="false">
-                    <?php echo $_SESSION['user_info']['description']; ?>
+                <p id="profile-description" class="info-box-description" style="visibility: visible;">
+                    <?php echo trim($_SESSION['user_info']['description']); ?>
                 </p>
-            </div>
-            <div class="info-box">
+
+                <textarea placeholder="Add a description!" id="profile-description-edit" class="" style="color: black; width: 100%; height: 60px; resize: none; display: none;"><?php echo trim($_SESSION['user_info']['description']) ?></textarea>
                 <h1 class="info-box-title">
-                    Player information
+                    Score
                 </h1>
-                <p class="info-box-description">
-                    <?php echo $_SESSION['user_info']['description']; ?>
-                </p>
                 <ul>
                     <li>
                         <img src="" alt="" srcset="">
-                        <p><?php echo $_SESSION['user_info']['highscore']; ?></p>
+                        <p>Score: <?php echo $_SESSION['user_info']['highscore']; ?></p>
                     </li>
                 </ul>
             </div>
@@ -56,9 +53,7 @@ refreshUserData($_SESSION['user_id']);
             <div class="info-box">
                 coucou
             </div>
-            <div class="info-box">
-                coucou
-            </div>
         </div>
     </div>
 </div>
+<script src="../controllers/profileEdit.js"></script>

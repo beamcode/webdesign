@@ -6,7 +6,7 @@ require 'ExceptionWithField.php';
 // Function to get all messages from the database
 function getMessages($db)
 {
-    $sql = "SELECT ChatMessages.id AS messageId, ChatMessages.message, ChatMessages.timestamp, Users.username, Users.profile_image 
+    $sql = "SELECT ChatMessages.id AS messageId, ChatMessages.message, ChatMessages.timestamp, Users.id AS user_id, Users.username, Users.profile_image 
         FROM ChatMessages 
         INNER JOIN Users ON ChatMessages.user_id = Users.id
         ORDER BY ChatMessages.timestamp DESC
@@ -76,13 +76,16 @@ try {
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Fetch messages from the database
         $data = getMessages($db);
-
         $responseCode = 500;
 
         // Check if any messages were fetched
         if (!empty($data)) {
             $responseCode = 200;
-            $response = $data;
+            $response = [
+                "status" => "success",
+                "user_id" => $_SESSION["user_id"],
+                "messagesData" => $data
+            ];
         } else {
             // Error occurred while fetching messages
             $response = [

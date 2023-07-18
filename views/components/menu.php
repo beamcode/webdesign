@@ -35,8 +35,8 @@
 <hr>
 <?php
 Anchor(
-    text: 'Log&nbsp;out',
+    text: 'Sign&nbsp;out',
     icon: 'views/icons/logout-icon.php',
-    link: '/logout'
+    link: '/signout'
 );
 ?>

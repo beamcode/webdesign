@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mush</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="views/game/game.css">
 </head>
+
 <body>
     <?php
+    if (!isset($_SESSION['user_id'])) {
+        // Redirect to the sign-in page
+        header("Location: signin");
+        exit();
+    }
     require 'views/components/button.php';
     require 'views/components/anchor.php';
     require 'views/components/input.php';
@@ -38,4 +45,5 @@
     <script src="../script.js"></script>
     <script type="module" src="views/game/script.js"></script>
 </body>
+
 </html>

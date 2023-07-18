@@ -1,17 +1,18 @@
 let lastData = []; // Variable to store the last received messages
 let firstLoad = true;
+
 function getMessages(scroll = false) {
     const messageContainer = document.getElementById("message-container");
     function displayMessages(data) {
         // Clear the message container
         messageContainer.innerHTML = "";
-        data.forEach(function (value) {
+        data.messagesData.forEach(function (value) {
             var messageHtml = `
                 <div class="message">
                     <img class="profile-picture" src="${value.profile_image}" alt="">
                     <div class="message-content">
                         <div class="message-header">
-                            <span class="username">${value.username}</span>
+                            <span class="username" ${data.user_id == value.user_id && "style='color: lightgreen;'"}>${value.username}</span>
                             <span class="date-time">${value.timestamp}</span>
                         </div>
                         <div class="message-body">
@@ -49,7 +50,7 @@ function getMessages(scroll = false) {
                 displayMessages(data)
             }
         })
-        .catch((error, data) => {
+        .catch((error) => {
             console.error("An error occurred: ", error);
         })
         .finally(function () {
@@ -65,8 +66,9 @@ function getMessages(scroll = false) {
             } else {
                 setTimeout(function () {
                     getMessages(false);
-                }, 1500);
+                }, 111500);
             }
         });
 }
+
 document.addEventListener("DOMContentLoaded", getMessages);

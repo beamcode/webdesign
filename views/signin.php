@@ -10,7 +10,7 @@
 <body>
     <div class="form-container">
         <form class="form" method="POST">
-            <img src="https://www.tagheuer.com/on/demandware.static/-/Library-Sites-TagHeuer-Shared/default/dwf2b7fbd0/images/landings/jpc/experience/icons/mushroom.png?imbypass=true" alt="Website Logo" srcset="">
+            <img src="" alt="Website Logo" srcset="">
             <p class="title">Welcome back</p>
             <p class="message">We're so happy to see you again!</p>
             <label>
