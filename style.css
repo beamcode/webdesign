@@ -119,12 +119,14 @@ ChatBox
 .message:nth-child(even) {
   background: #2f3138;
 }
+
 .message:nth-child(odd) {
   background: #1e1f22;
 }
 
 .message {
   display: flex;
+  border-radius: 10px;
   width: 100%;
   height: fit-content;
   padding: var(--spacer-md);
@@ -165,6 +167,7 @@ ChatBox
 
 .message p {
   margin: 0;
+  margin-top: 10px;
   /* Equivalent to overflow-wrap: anywhere */
   word-wrap: break-word;
   overflow-wrap: break-word;
