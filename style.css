@@ -299,26 +299,17 @@ Profile
   --offset-3d: 0.14vmin;
   --color-stroke-3d: #1a1a1c;
   text-shadow: 0px 0px 0 var(--color-stroke-3d),
-    calc(var(--offset-3d) * 1) calc(var(--offset-3d) * 1) 0
-      var(--color-stroke-3d),
-    calc(var(--offset-3d) * 2) calc(var(--offset-3d) * 2) 0
-      var(--color-stroke-3d),
-    calc(var(--offset-3d) * 3) calc(var(--offset-3d) * 3) 0
-      var(--color-stroke-3d),
-    calc(var(--offset-3d) * 4) calc(var(--offset-3d) * 4) 0
-      var(--color-stroke-3d),
-    calc(var(--offset-3d) * 5) calc(var(--offset-3d) * 5) 0
-      var(--color-stroke-3d),
-    calc(var(--offset-3d) * 6) calc(var(--offset-3d) * 6) 0
-      var(--color-stroke-3d),
-    calc(var(--offset-3d) * 7) calc(var(--offset-3d) * 7) 0
-      var(--color-stroke-3d),
-    calc(var(--offset-3d) * 8) calc(var(--offset-3d) * 8) 0
-      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 1) calc(var(--offset-3d) * 1) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 2) calc(var(--offset-3d) * 2) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 3) calc(var(--offset-3d) * 3) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 4) calc(var(--offset-3d) * 4) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 5) calc(var(--offset-3d) * 5) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 6) calc(var(--offset-3d) * 6) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 7) calc(var(--offset-3d) * 7) 0 var(--color-stroke-3d),
+    calc(var(--offset-3d) * 8) calc(var(--offset-3d) * 8) 0 var(--color-stroke-3d),
     calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 10px rgba(0, 0, 0, 0),
     calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 1px rgba(0, 0, 0, 0.5),
-    calc(var(--offset-3d) * 0) calc(var(--offset-3d) * 0) 10px
-      rgba(0, 0, 0, 0.2);
+    calc(var(--offset-3d) * 0) calc(var(--offset-3d) * 0) 10px rgba(0, 0, 0, 0.2);
 }
 
 /* ######################################
@@ -345,4 +336,64 @@ Desktop & Tablet
     padding-right: 0;
     width: 250px;
   }
+}
+
+/* ######################################
+Highscore
+###################################### */
+
+.highscore {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.highscore .profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.highscore .message-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.highscore .username {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e9e6e6;
+    text-decoration: none;
+    cursor: pointer; /* Change cursor to pointer on hover to indicate it's clickable */
+    transition: color 0.3s ease;
+}
+
+.highscore .username:hover {
+    color: #007BFF; /* Change link color on hover */
+}
+
+.highscore .date-time {
+    font-size: 14px;
+    color: #666;
+}
+
+.highscore .score {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: auto; /* Moves the highscore to the right */
+    display: flex;
+    align-items: center;
+}
+
+.highscore .trophy-icon {
+    width: 24px;
+    height: 24px;
+    fill: gold;
+    margin-left: 5px;
 }
