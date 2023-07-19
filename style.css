@@ -157,17 +157,20 @@ ChatBox
 
 .message .message-header {
   display: flex;
+  gap: 5px;
   justify-content: space-between;
   align-items: center;
 }
 
 .message .username {
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .message .date-time {
   font-size: 0.8em;
   color: gray;
+  text-align: right;
 }
 
 .message p {
