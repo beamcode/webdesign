@@ -7,7 +7,7 @@ refreshUserData($_SESSION['user_id']);
         <div class="profile-avatar">
             <div class="profile-picture-wrapper">
                 <img id="profile-picture" src="views/assets/images/default_profile.png" alt="User Profile">
-                <input id="profile-upload" class="inputfile" type="file" accept="image/*" onchange="previewImage(event, 'profile-picture')">
+                <input id="profile-upload" class="inputfile" type="file" accept="image/jpeg, image/png, image/gif" onchange="previewImage(event, 'profile-picture')">
                 <label id="profile-upload-label" class="edit-label" for="profile-upload" style="visibility: hidden;"></label>
             </div>
 
@@ -17,7 +17,7 @@ refreshUserData($_SESSION['user_id']);
         </div>
         <div class="banner-img-wrapper">
             <img id="profile-banner" src="views/assets/images/default_banner.png" alt="User Banner">
-            <input id="banner-upload" class="inputfile" type="file" accept="image/*" onchange="previewImage(event, 'profile-banner')" />
+            <input id="banner-upload" class="inputfile" type="file" accept="image/jpeg, image/png" onchange="previewImage(event, 'profile-banner')" />
             <label id="banner-upload-label" class="edit-label" for="banner-upload" style="visibility: hidden;"></label>
         </div>
         <div class="profile-menu">
