@@ -50,16 +50,16 @@ function getHighScore($connection, $userId)
 // Establishing connection
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form field values
+        // // Get the form field values
         $userId = $_SESSION["user_id"];
-        $score = $_POST["score"];
-        $responseCode = 500;
+        $score = $_POST["highScore"];
+        $responseCode = 200;
 
         if (setHighScore($db, $userId, $score)) {
             $responseCode = 200;
             $response = [
                 "status" => "success",
-                "user_id" => $_SESSION["user_id"]
+                "message" => "All good bob"
             ];
         } else {
             // Error occurred while fetching messages
@@ -69,7 +69,6 @@ try {
             ];
         }
 
-        // Send the response as JSON
         http_response_code($responseCode);
         header("Content-Type: application/json");
         echo json_encode($response);
