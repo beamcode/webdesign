@@ -4,31 +4,31 @@
         class: $view == 'home' ? 'active' : '',
         text: 'Home',
         icon: 'views/icons/home-icon.php',
-        link: '/'
+        link: 'home.php'
     );
     Anchor(
         class: $view == 'profile' ? 'active' : '',
         text: 'Profile',
         icon: 'views/icons/profile-icon.php',
-        link: '/profile'
+        link: 'profile.php'
     );
     Anchor(
         class: $view == 'game' ? 'active' : '',
         text: 'Game',
         icon: 'views/icons/game-icon.php',
-        link: '/game'
+        link: 'game.php'
     );
     Anchor(
         class: $view == 'score' ? 'active' : '',
         text: 'Score',
         icon: 'views/icons/score-icon.php',
-        link: '/score'
+        link: 'score.php'
     );
     Anchor(
         class: $view == 'shop' ? 'active' : '',
         text: 'Shop',
         icon: 'views/icons/shop-icon.php',
-        link: '/shop'
+        link: 'shop.php'
     );
     ?>
 </nav>
@@ -37,6 +37,6 @@
 Anchor(
     text: 'Sign&nbsp;out',
     icon: 'views/icons/logout-icon.php',
-    link: '/signout'
+    link: 'signout.php'
 );
 ?>

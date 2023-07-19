@@ -1,20 +1,19 @@
 function InsertHighscores() {
 	let lastData = [];
-	fetch("../models/highscores.php", {
+	fetch("models/highscores.php", {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
 		},
 	})
-		.then(response => {
+		.then(async response => {
 			if (response.ok) {
 				// Reset input fields on success 
 				return response.json();
 			} else {
 				// Throw an error if the response status is not OK
-				return response.json().then(error => {
-					throw new Error(error.message);
-				});
+				const error = await response.json();
+				throw new Error(error.message);
 			}
 		})
 		.then(data => {

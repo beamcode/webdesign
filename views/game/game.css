@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Super Mario Bros Wii';
-  src: url("../assets/fonts/SuperMarioBrosWii.otf") format("opentype");
+  font-family: "Super Mario Bros Wii";
+  src: url("../../views/assets/fonts/SuperMarioBrosWii.otf") format("opentype");
 }
 
 :root {
@@ -16,7 +16,7 @@
   --shell: url(../assets/images/shell.png);
   --wall: url(../assets/images/wall.png);
   --star: url(../assets/images/star.png);
-  --coin: url("https://64.media.tumblr.com/34ecb97af549396ce54461835a63d1b3/1fe59baa06bb8c17-d9/s540x810/041f293db97d977df5ccd2cd8b94995aa2f9a34a.gif");
+  --coin: url(../assets/images/coin.gif);
   --flag: url(../assets/images/flag.png);
   --lava: url(../assets/images/lava.png);
   --ground: url(../assets/images/ground.png);
@@ -27,40 +27,41 @@
   --heart: url(../assets/images/heart.png);
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 0;
 }
 
 h2 {
   /* font-weight: 600; */
-  font-family: 'Super Mario Bros Wii';
+  font-family: "Super Mario Bros Wii";
   -webkit-text-stroke: 0.2rem #1a1a1c;
   font-size: 4rem;
   text-align: center;
   --offset-3d: 0.14vmin;
   --color-stroke-3d: #1a1a1c;
   text-shadow: 0px 0px 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 1) calc(var(--offset-3d) * 1) 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 2) calc(var(--offset-3d) * 2) 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 3) calc(var(--offset-3d) * 3) 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 4) calc(var(--offset-3d) * 4) 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 5) calc(var(--offset-3d) * 5) 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 6) calc(var(--offset-3d) * 6) 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 7) calc(var(--offset-3d) * 7) 0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 8) calc(var(--offset-3d) * 8)  0 var(--color-stroke-3d),
-  calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 10px rgba(0,0,0,0),
-  calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 1px rgba(0,0,0,0.5),
-  calc(var(--offset-3d) * 0) calc(var(--offset-3d) * 0) 10px rgba(0,0,0,.2);
+    calc(var(--offset-3d) * 1) calc(var(--offset-3d) * 1) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 2) calc(var(--offset-3d) * 2) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 3) calc(var(--offset-3d) * 3) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 4) calc(var(--offset-3d) * 4) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 5) calc(var(--offset-3d) * 5) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 6) calc(var(--offset-3d) * 6) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 7) calc(var(--offset-3d) * 7) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 8) calc(var(--offset-3d) * 8) 0
+      var(--color-stroke-3d),
+    calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 10px rgba(0, 0, 0, 0),
+    calc(var(--offset-3d) * 9) calc(var(--offset-3d) * 9) 1px rgba(0, 0, 0, 0.5),
+    calc(var(--offset-3d) * 0) calc(var(--offset-3d) * 0) 10px
+      rgba(0, 0, 0, 0.2);
 }
-
-
-
-
-
-
-
-
-
 
 /* Styles pour la div qui contient tous les boutons de contrôle */
 
@@ -96,7 +97,7 @@ h2 {
   height: 64px;
   width: 64px;
   background-color: var(--second-color);
-  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   border-radius: 9999px;
@@ -113,15 +114,6 @@ h2 {
   display: flex;
   flex-direction: column;
 }
-
-
-
-
-
-
-
-
-
 
 /* --------------------------------------
 Characters
@@ -234,17 +226,14 @@ HUD
   /* box-shadow: 0px 0px 100% 1rem rgba(0,0,0,0.75) inset;
   -webkit-box-shadow: 0px 0px 100% 1rem rgba(0,0,0,0.75) inset;
   -moz-box-shadow: 0px 0px 100% 1rem rgba(0,0,0,0.75) inset; */
-
 }
 
 .hud .score,
 .hud .stars,
-.hud .coins
- {
+.hud .coins {
   position: relative;
   padding-left: calc(var(--height-line) + 0.5rem);
-
-  }
+}
 .hud .score::before,
 .hud .stars::before,
 .hud .coins::before {
@@ -354,7 +343,8 @@ Menu
   padding-inline: 2vmin;
 }
 
-.win h1, .lose h1 {
+.win h1,
+.lose h1 {
   font-size: 6rem;
   color: var(--second-color);
   text-shadow: 2px 2px 0px #000000;
@@ -377,7 +367,6 @@ Menu
 .skin-button:hover:not(.active) > img {
   transform: scale(1.1);
   /* animation: squeeze 0.9s ease; */
-
 }
 
 .skin-button {
@@ -409,15 +398,15 @@ Menu
   cursor: pointer;
   transition: 250ms;
 }
- 
- .btn:hover {
+
+.btn:hover {
   box-shadow: 7px 5px 56px -14px var(--second-color);
- }
- 
- .btn:active {
+}
+
+.btn:active {
   transform: scale(0.97);
   box-shadow: 7px 5px 56px -10px var(--second-color);
- }
+}
 
 /* .btn {
   border: none;
@@ -447,12 +436,11 @@ Menu
   transform: scale(.9);
   transition: all 100ms ease;
 } */
- 
 
 .skin-button {
   position: relative;
   /* padding: 12px 35px; */
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .star-animation {
@@ -466,8 +454,6 @@ Menu
   width: 0;
   height: 0;
 }
-
-
 
 .star-1 {
   top: 30%;
@@ -492,19 +478,19 @@ Menu
 .star-4 {
   top: 20%;
   left: 40%;
-  transition: all .8s cubic-bezier(0, 0.4, 0, 1.01);
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
 .star-5 {
   top: 25%;
   left: 45%;
-  transition: all .6s cubic-bezier(0, 0.4, 0, 1.01);
+  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
 .star-6 {
   top: 5%;
   left: 50%;
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
 
 .skin-button:hover .star-animation {
@@ -554,40 +540,39 @@ Menu
   height: 5px;
 }
 
-
 @keyframes squeeze {
   0% {
-   -webkit-transform: scale3d(1, 1, 1);
-   transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
- 
+
   30% {
-   -webkit-transform: scale3d(1.25, 0.75, 1);
-   transform: scale3d(1.25, 0.75, 1);
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
   }
- 
+
   40% {
-   -webkit-transform: scale3d(0.75, 1.25, 1);
-   transform: scale3d(0.75, 1.25, 1);
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
- 
+
   50% {
-   -webkit-transform: scale3d(1.15, 0.85, 1);
-   transform: scale3d(1.15, 0.85, 1);
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
- 
+
   65% {
-   -webkit-transform: scale3d(0.95, 1.05, 1);
-   transform: scale3d(0.95, 1.05, 1);
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
   }
- 
+
   75% {
-   -webkit-transform: scale3d(1.05, 0.95, 1);
-   transform: scale3d(1.05, 0.95, 1);
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
- 
+
   100% {
-   -webkit-transform: scale3d(1, 1, 1);
-   transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
- }
+}

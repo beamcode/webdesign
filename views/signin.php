@@ -10,7 +10,7 @@
 <body>
     <div class="form-container">
         <form class="form" method="POST">
-            <img src="" alt="Website Logo" srcset="">
+            <img src="views/assets/images/mushroom.png" alt="Website Logo" srcset="">
             <p class="title">Welcome back</p>
             <p class="message">We're so happy to see you again!</p>
             <label>
@@ -26,11 +26,11 @@
             <span id="password-error" class="error-message"></span>
             <p><a href="https://www.youtube.com/watch?v=eCKzNkW5GMI">Forgot password?</a></p>
             <button class="submit">Connection</button>
-            <p class="signin">Don't have an account ? <a href="./signup">Sign Up</a></p>
+            <p class="signin">Don't have an account ? <a href="./signup.php">Sign Up</a></p>
         </form>
     </div>
-    <script src="../controllers/togglePassword.js"></script>
-    <script src="../controllers/signin.js"></script>
+    <script src="controllers/togglePassword.js"></script>
+    <script src="controllers/signin.js"></script>
 </body>
 
 </html>

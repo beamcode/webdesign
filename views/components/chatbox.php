@@ -17,5 +17,5 @@
     </div>
 </form>
 
-<script src="../../controllers/sendMessage.js"></script>
-<script src="../../controllers/getMessages.js"></script>
+<script src="controllers/sendMessage.js"></script>
+<script src="controllers/getMessages.js"></script>

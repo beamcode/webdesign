@@ -2,7 +2,7 @@ document.querySelector('.form').addEventListener('submit', function (e) {
     e.preventDefault();
     const usernameError = document.getElementById('username-error');
     const passwordError = document.getElementById('password-error');
-    fetch('../models/signin.php', {
+    fetch('models/signin.php', {
         method: 'POST',
         body: new FormData(this)
     })
@@ -26,7 +26,7 @@ document.querySelector('.form').addEventListener('submit', function (e) {
                 }
             } else if (data.success) {
                 // Redirect when login is successful
-                window.location.href = './home';
+                window.location.href = './home.php';
             }
         })
         .catch(error => {

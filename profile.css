@@ -37,7 +37,7 @@
 Profile avatar
 ------------------------------------------ */
 .profile-header {
-    --banner-image: url("views/assets/uploads/banner/default_banner.png");
+    --banner-image: url("views/assets/images/default_banner.png");
     position: relative;
     height: var(--profile-height);
     min-height: var(--profile-min-height);

@@ -1,5 +1,5 @@
 function fetchUserProfile() {
-    fetch('../models/profileEdit.php')
+    fetch('models/profileEdit.php')
         .then(response => response.json())
         .then(user => {
             document.getElementById('profile-picture').src = user.profile_image;
@@ -49,7 +49,7 @@ function saveChanges() {
     }
     // Check if formData is not empty
     if (formData.has('profile_image') || formData.has('banner_image') || formData.has('description')) {
-        fetch('../models/profileEdit.php', {
+        fetch('models/profileEdit.php', {
             method: 'POST',
             body: formData
         })

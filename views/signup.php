@@ -10,7 +10,7 @@
 <body>
     <div class="form-container">
         <form class="form" method="post">
-            <img src="assets/mushroom.png" alt="Website Logo" srcset="">
+            <img src="views/assets/images/mushroom.png" alt="Website Logo" srcset="">
             <p class="title">Create your account</p>
             <p class="message">Sign up now and get full access to our app.</p>
             <label>
@@ -30,13 +30,13 @@
                 <i class="toggle-password fa fa-eye"></i>
             </label>
             <span id="confirm-password-error" class="error-message"></span>
-            <button class="submit">Create</button>
-            <p class="signin">Already have an acount ? <a href="./signin">Sign In</a> </p>
+            <button class="submit">Create account</button>
+            <p class="signin">Already have an acount ? <a href="./signin.php">Sign In</a> </p>
         </form>
     </div>
-    <script src="../controllers/togglePassword.js"></script>
-    <script src="../controllers/signupFormValidator.js"></script>
-    <script src="../controllers/signup.js"></script>
+    <script src="controllers/togglePassword.js"></script>
+    <script src="controllers/signupFormValidator.js"></script>
+    <script src="controllers/signup.js"></script>
 </body>
 
 </html>

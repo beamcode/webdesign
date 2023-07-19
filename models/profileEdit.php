@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $profileImagePath)) {
             $updateData[] = "profile_image = ?";
             $types .= "s";
-            $params[] = $profileImagePath;
+            $params[] = "finalteam3/" . $profileImagePath;
         } else {
             $errorMessage = "Error uploading profile image: " . $_FILES['profile_image']['error'];
             echo json_encode(['error' => $errorMessage]);
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (move_uploaded_file($_FILES['banner_image']['tmp_name'], $bannerImagePath)) {
             $updateData[] = "banner_image = ?";
             $types .= "s";
-            $params[] = $bannerImagePath;
+            $params[] = "finalteam3/" . $bannerImagePath;
         } else {
             $errorMessage = "Error uploading banner image: " . $_FILES['banner_image']['error'];
             echo json_encode(['error' => $errorMessage]);

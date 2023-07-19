@@ -3,7 +3,7 @@ function sendMessage(event) {
     const form = event.target;
     const formData = new FormData(event.target);
     // Send the form data to the PHP backend
-    fetch("../models/messageSystem.php", {
+    fetch("models/messageSystem.php", {
         method: "POST",
         body: formData
     })

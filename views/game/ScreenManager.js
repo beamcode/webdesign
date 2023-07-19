@@ -17,25 +17,25 @@ class ScreenManager {
         let title = document.createElement('h2');
         title.textContent = "Select your skin !";
         this.wrap.appendChild(title);
-    
+
         let skinDisplay = document.createElement('div');
         skinDisplay.id = 'skins';
         let currentSkinButton = null;
         for (let i = 0; i < this.skins.length; i++) {
             let skin = this.skins[i];
             let skinButton = element('button');
-            skinButton.classList.add('skin-button'); 
-    
+            skinButton.classList.add('skin-button');
+
             let skinImg = document.createElement('img');
             skinImg.src = `views/assets/images/${skin}.png`;
             skinButton.appendChild(skinImg);
-    
+
             for (let j = 1; j <= 6; j++) {
                 let star = document.createElement('div');
                 star.classList.add('star-animation', `star-${j}`);
                 skinButton.appendChild(star);
             }
-    
+
             this.addOnClick(skinButton, () => {
                 if (currentSkinButton) {
                     currentSkinButton.classList.remove('active');
@@ -45,7 +45,7 @@ class ScreenManager {
                 this.selectSkin(skin);
             });
             skinDisplay.appendChild(skinButton);
-    
+
             if (i === 0) {
                 skinButton.classList.add('active');
                 currentSkinButton = skinButton;
@@ -53,7 +53,7 @@ class ScreenManager {
             }
         }
         this.wrap.appendChild(skinDisplay);
-    
+
         let startButton = element('button', 'btn');
         startButton.textContent = 'Play';
         this.addOnClick(startButton, () => {
@@ -71,7 +71,7 @@ class ScreenManager {
         scoreMessage.textContent = score;
         this.wrap.appendChild(winMessage);
         this.wrap.appendChild(scoreMessage);
-    
+
         let returnButton = element('button', 'btn');
         returnButton.textContent = 'Menu';
         this.addOnClick(returnButton, () => {
@@ -80,7 +80,7 @@ class ScreenManager {
         });
         this.wrap.appendChild(returnButton);
     }
-    
+
     displayLoseScreen(score) {
         this.wrap = this.parent.appendChild(element("div", "lose"));
         let winMessage = document.createElement('h2');
@@ -89,7 +89,7 @@ class ScreenManager {
         scoreMessage.textContent = score;
         this.wrap.appendChild(winMessage);
         this.wrap.appendChild(scoreMessage);
-    
+
         let returnButton = element('button', 'btn');
         returnButton.textContent = 'Try Again';
         this.addOnClick(returnButton, () => {

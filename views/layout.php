@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="views/game/game.css">
+    <link rel="icon" type="image/x-icon" href="views/assets/images/mushroom.png">
 </head>
 
 <body>
@@ -42,7 +43,7 @@
             <?php SideBar("views/components/chatbox.php", "toggleSidebar('sidebarRight')"); ?>
         </aside>
     </div>
-    <script src="../script.js"></script>
+    <script src="script.js"></script>
     <script type="module" src="views/game/script.js"></script>
 </body>
 

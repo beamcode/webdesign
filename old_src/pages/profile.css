@@ -84,7 +84,7 @@ body {
 Profile avatar
 ------------------------------------------ */
 .profile {
-    --banner-image: url("../assets/uploads/banner/default_banner.png");
+    --banner-image: url("views/assets/default_banner.png");
     position: relative;
     height: var(--profile-height);
     min-height: var(--profile-min-height);

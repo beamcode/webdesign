@@ -3,7 +3,7 @@ document.querySelector('.form').addEventListener('submit', function (e) {
     const usernameError = document.getElementById('username-error');
     const passwordError = document.getElementById('password-error');
     const confirmPasswordError = document.getElementById('confirm-password-error');
-    fetch('../models/signup.php', {
+    fetch('models/signup.php', {
         method: 'POST',
         body: new FormData(this)
     })
@@ -30,7 +30,7 @@ document.querySelector('.form').addEventListener('submit', function (e) {
                 }
             } else if (data.success) {
                 // Redirect when registration is successful
-                window.location.href = './signin';
+                window.location.href = './signin.php';
             }
         });
 });

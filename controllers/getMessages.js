@@ -25,7 +25,7 @@ function getMessages(scroll = false) {
     }
 
     // Fetch messages from the PHP backend
-    fetch("../models/messageSystem.php", {
+    fetch("models/messageSystem.php", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
