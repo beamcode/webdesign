@@ -5,10 +5,27 @@ require 'ExceptionWithField.php';
 
 function setHighScore($connection, $userId, $score)
 {
+    // Retrieve the current high score from the database
+    $query = "SELECT highscore FROM Users WHERE id = ?";
+    $statement = mysqli_prepare($connection, $query);
+
+    if ($statement) {
+        mysqli_stmt_bind_param($statement, "i", $userId);
+        mysqli_stmt_execute($statement);
+        mysqli_stmt_bind_result($statement, $currentHighScore);
+        mysqli_stmt_fetch($statement);
+        mysqli_stmt_close($statement);
+
+        // Compare the current high score with the new score
+        if ($score <= $currentHighScore) {
+            return false; // New score is not higher, no update needed
+        }
+    } else {
+        return false; // Failed to fetch current high score
+    }
+
     // Prepare the query with parameter placeholders
     $query = "UPDATE Users SET highscore = ? WHERE id = ?";
-
-    // Create a prepared statement
     $statement = mysqli_prepare($connection, $query);
 
     if ($statement) {
