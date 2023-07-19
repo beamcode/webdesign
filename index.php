@@ -6,8 +6,8 @@ require_once 'models/ExceptionWithField.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $tokens = explode('/', $uri);
 $uri = $tokens[sizeof($tokens) - 1];
-// $workingdir = '/finalteam3/';
-$workingdir = '/';
+$workingdir = '/finalteam3/';
+
 
 switch ($uri) {
     case '':
