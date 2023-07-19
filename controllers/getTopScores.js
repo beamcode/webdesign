@@ -35,14 +35,12 @@ function displayHighscores(data) {
 	data.forEach((value) => {
 		const highscoreHtml = `
     <div class="highscore">
-        <a href="/profile/${value.username}">
-            <img class="profile-picture" src="${value.profile_image}" alt="">
-        </a>
+		<img class="profile-picture" src="${value.profile_image}" alt="">
         <div class="message-header">
-            <a href="/profile/${value.username}" class="username">${value.username}</a>
+            ${value.username}
             <span class="date-time">${value.description}</span>
         </div>
-        <div class="score">Score | ${value.highscore}</div>
+        <div class="score">${value.highscore}</div>
     </div>
 			`;
 		highscoreContainer.insertAdjacentHTML('beforeend', highscoreHtml);

@@ -360,14 +360,22 @@ Desktop & Tablet
 Highscore
 ###################################### */
 
+#highscoreContainer {
+  display: flex;
+  overflow: hidden;
+  gap: 8px;
+  flex-direction: column;
+  box-shadow: var(--box-shadow);
+}
+
 .highscore {
   display: flex;
+  gap: 20px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  padding: 12px 16px;
+  background-color: #313338;
   align-items: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .highscore .profile-picture {
@@ -375,11 +383,11 @@ Highscore
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 10px;
 }
 
 .highscore .message-header {
   display: flex;
+  gap: 8px;
   flex-direction: column;
 }
 
