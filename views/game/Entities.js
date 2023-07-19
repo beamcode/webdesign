@@ -274,42 +274,6 @@ class Player extends Character {
         }
     }
 
-    touchHandler() {
-        // const currentTime = new Date().getTime();
-        // const timeDifference = currentTime - this.lastTap;
-
-        // if (event.type === 'touchstart') {
-        //     this.dirs.right = event.touches[0].clientX > window.innerWidth / 2;
-        //     this.dirs.left = !this.dirs.right;
-        //     this.dirs.up = timeDifference < this.DOUBLE_TAP_INTERVAL_MS && timeDifference > 0;
-        // } else if (event.type === 'touchend') {
-        //     this.dirs.left = false;
-        //     this.dirs.right = false;
-        //     this.dirs.up = false;
-        // }
-
-        // this.lastTap = currentTime;
-        // event.preventDefault();
-        // var buttonLeft = document.querySelector('.button-left');
-        // var buttonRight = document.querySelector('.button-right');
-        // var buttonJump = document.querySelector('.button-jump');
-
-        // buttonLeft.addEventListener('mousedown', () => this.dirs.left = true);
-        // buttonLeft.addEventListener('mouseup', () => this.dirs.left = false);
-        // buttonLeft.addEventListener('touchstart', () => this.dirs.left = true);
-        // buttonLeft.addEventListener('touchend', () => this.dirs.left = false);
-
-        // buttonRight.addEventListener('mousedown', () => this.dirs.right = true);
-        // buttonRight.addEventListener('mouseup', () => this.dirs.right = false);
-        // buttonRight.addEventListener('touchstart', () => this.dirs.right = true);
-        // buttonRight.addEventListener('touchend', () => this.dirs.right = false);
-
-        // buttonJump.addEventListener('mousedown', () => this.dirs.up = true);
-        // buttonJump.addEventListener('mouseup', () => this.dirs.up = false);
-        // buttonJump.addEventListener('touchstart', () => this.dirs.up = true);
-        // buttonJump.addEventListener('touchend', () => this.dirs.up = false);
-    }
-
     handleCollisionWithCharacter(level, actor, colision) {
         if (level.status !== null) return;
     
