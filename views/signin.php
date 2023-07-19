@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignIn</title>
     <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -26,7 +27,7 @@
             <span id="password-error" class="error-message"></span>
             <p><a href="https://www.youtube.com/watch?v=eCKzNkW5GMI">Forgot password?</a></p>
             <button class="submit">Connection</button>
-            <p class="signin">Don't have an account ? <a href="./signup.php">Sign Up</a></p>
+            <p class="form-link">Don't have an account ? <a href="./signup.php">Sign Up</a></p>
         </form>
     </div>
     <script src="controllers/togglePassword.js"></script>

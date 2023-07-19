@@ -96,7 +96,7 @@ h2 {
   font-size: 2rem;
   height: 64px;
   width: 64px;
-  background-color: var(--second-color);
+  background-color: #db545463;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -297,7 +297,7 @@ Game
   overflow: hidden;
 }
 
-.game-view {
+.game-container {
   position: relative;
   overflow: hidden;
   display: flex;

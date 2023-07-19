@@ -9,7 +9,7 @@ class Display {
     constructor(parent, level) {
         // this.parent = parent;
         this.level = level;
-        this.wrap = parent.appendChild(element("div", "game-view"));
+        this.wrap = parent.appendChild(element("div", "game-container"));
         this.map = this.wrap.appendChild(element("div", "map-wrapper"));
         this.map.appendChild(this.drawBackground());
         this.actorLayer = null;
@@ -83,7 +83,7 @@ class Display {
             this.map.removeChild(this.actorLayer);
         this.drawHUD();
         this.actorLayer = this.map.appendChild(this.drawActors());
-        this.wrap.className = "game-view " + (this.level.status || "");
+        this.wrap.className = "game-container " + (this.level.status || "");
         this.scrollPlayerIntoView();
     }
 

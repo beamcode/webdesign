@@ -113,7 +113,6 @@ ChatBox
   padding-top: 4px;
   height: 100%;
   width: 100%;
-  min-width: 310px;
   overflow-y: scroll;
 }
 
@@ -345,6 +344,10 @@ Desktop & Tablet
   .scaffold-layout-sidebar.left:not(.collapsed) {
     padding-right: 0;
     width: 250px;
+  }
+
+  .messages-area {
+    min-width: 310px;
   }
 }
 

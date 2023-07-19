@@ -25,7 +25,7 @@
     require 'views/components/sidebar.php';
     ?>
 
-    <div class="scaffold-layout">
+    <div class="scaffold-layout <?php echo $view ?>-view">
         <aside class="scaffold-layout-sidebar left collapsed" id="sidebarLeft">
             <?php SideBar("views/components/menu.php", "toggleSidebar('sidebarLeft')"); ?>
         </aside>
