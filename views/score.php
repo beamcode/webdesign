@@ -3,4 +3,4 @@
     <h3>Ranked by highscore</h3>
     <div id="highscoreContainer">
 </div>
-<script type="module" src="controllers/getHighscores.js"></script>
+<script type="module" src="controllers/getTopScores.js"></script>

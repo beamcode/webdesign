@@ -1,6 +1,7 @@
 import Level from './Level.js';
 import Display from './Display.js';
 import ScreenManager from './ScreenManager.js';
+import setHighScore from '../../controllers/setHighscore.js';
 
 class Game {
     constructor(plans, parent) {
@@ -46,6 +47,7 @@ class Game {
     handleVictory() {
         console.log("You win!", this.data.score);
         this.screenManager.displayWinScreen(this.data.score);
+        setHighScore(this.data.score);
     }
 
     handleDefeat() {

@@ -5,14 +5,12 @@ function setHighScore(highScore) {
     formData.append('highScore', highScore.toString());
 
     // Send the form data to the PHP backend
-    let status = fetch("models/highScoreSystem.php", {
+    let status = fetch("models/highscores.php", {
         method: "POST",
         body: formData
     })
         .then(async response => {
-            if (response.ok) {
-                return response.json();
-            } else {
+            if (!response.ok) {
                 // Display error message on failure
                 const error = await response.json();
                 throw new Error(error.message);
@@ -26,3 +24,5 @@ function setHighScore(highScore) {
         });
     return status;
 };
+
+export default setHighScore;
