@@ -8,14 +8,17 @@ function fetchUserProfile() {
             updateBannerImage(user.banner_image);
             const profileDescription = document.getElementById('profile-description');
             profileDescription.textContent = user.description;
+            
+            // Store the initial value of the description
+            profileDescription.dataset.initialValue = user.description;
         });
 }
 
 function toggleViewMode() {
     document.getElementById('profile-upload-label').style.visibility = 'hidden';
     document.getElementById('banner-upload-label').style.visibility = 'hidden';
-    document.getElementById('profile-description').style.display = 'block';
-    document.getElementById('profile-description-edit').style.display = 'none';
+    document.getElementById('profile-description').setAttribute("contenteditable", false);
+    document.getElementById('profile-description').classList.toggle('editable-description');
     document.querySelector('.edit-profile').style.display = 'block';
     document.querySelector('.save-profile').style.display = 'none';
 }
@@ -23,8 +26,8 @@ function toggleViewMode() {
 function toggleEditMode() {
     document.getElementById('profile-upload-label').style.visibility = 'visible';
     document.getElementById('banner-upload-label').style.visibility = 'visible';
-    document.getElementById('profile-description').style.display = 'none';
-    document.getElementById('profile-description-edit').style.display = 'block';
+    document.getElementById('profile-description').setAttribute("contenteditable", true);
+    document.getElementById('profile-description').classList.toggle('editable-description');
     document.querySelector('.edit-profile').style.display = 'none';
     document.querySelector('.save-profile').style.display = 'block';
 }
@@ -33,7 +36,6 @@ function saveChanges() {
     const profileUpload = document.getElementById('profile-upload');
     const bannerUpload = document.getElementById('banner-upload');
     const profileDescription = document.getElementById('profile-description');
-    const profileDescriptionEdit = document.getElementById('profile-description-edit');
     const formData = new FormData();
 
     if (profileUpload.files.length > 0) {
@@ -44,8 +46,9 @@ function saveChanges() {
         updateBannerImage(bannerUpload.files[0]);
     }
     // Check if the description has been modified
-    if (profileDescriptionEdit.value !== profileDescription.textContent) {
-        formData.append('description', profileDescriptionEdit.value);
+    if (profileDescription.textContent !== profileDescription.dataset.initialValue) {
+        formData.append('description', profileDescription.textContent);
+        profileDescription.dataset.initialValue = profileDescription.textContent;
     }
     // Check if formData is not empty
     if (formData.has('profile_image') || formData.has('banner_image') || formData.has('description')) {

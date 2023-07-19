@@ -33,11 +33,9 @@ refreshUserData($_SESSION['user_id']);
                 <h1 class="info-box-title">
                     About me
                 </h1>
-                <p id="profile-description" class="info-box-description" style="visibility: visible;">
+                <p id="profile-description" contenteditable="false">
                     <?php echo trim($_SESSION['user_info']['description']); ?>
                 </p>
-
-                <textarea placeholder="Add a description!" id="profile-description-edit" class="" style="color: black; width: 100%; resize: none; display: none;"><?php echo trim($_SESSION['user_info']['description']) ?></textarea>
                 <h1 class="info-box-title">
                     Highest Score
                 </h1>
