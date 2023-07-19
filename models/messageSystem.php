@@ -100,12 +100,8 @@ try {
         echo json_encode($response);
     }
 } catch (ExceptionWithField $e) {
-    // Return to backup point
-    // $db->rollback();
     echo json_encode(['error' => $e->getMessage(), 'field' => $e->getField()]);
 } catch (Exception $e) {
-    // Return to backup point
-    // $db->rollback();
     echo json_encode(['error' => $e->getMessage()]);
 } finally {
     if (isset($db)) {
