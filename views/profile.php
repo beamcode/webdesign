@@ -31,7 +31,7 @@ refreshUserData($_SESSION['user_id']);
                 <h1 class="info-box-title">
                     About me
                 </h1>
-                <p id="profile-description" contenteditable="false">
+                <p id="profile-description" onkeypress="return (this.innerText.length <= 250)" contenteditable="false">
                     <?php echo trim($_SESSION['user_info']['description']); ?>
                 </p>
                 <h1 class="info-box-title">
