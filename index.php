@@ -13,11 +13,9 @@ switch ($uri) {
     case '':
         header('Location: ' . $workingdir . 'signin.php');
         exit();
-        break;
     case 'index.php':
         header('Location: ' . $workingdir . 'signin.php');
         exit();
-        break;
     case 'home.php':
         $view = 'home';
         require_once './views/layout.php';

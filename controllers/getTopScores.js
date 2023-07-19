@@ -36,11 +36,11 @@ function displayHighscores(data) {
 		// <img src="${value.profile_image}" alt="Profile Image" class="w-10 text-sm font-bold rounded-full">
 		const highscoreHtml = `
     <div class="highscore">
-        <a href="/profile/${value.username}">
+        <a href="/profile?id=${value.username}">
             <img class="profile-picture" src="${value.profile_image}" alt="">
         </a>
         <div class="message-header">
-            <a href="/profile/${value.username}" class="username">${value.username}</a>
+            <a href="/profile?id=${value.username}" class="username">${value.username}</a>
             <span class="date-time">${value.description}</span>
         </div>
         <div class="score">${value.highscore}</div>
