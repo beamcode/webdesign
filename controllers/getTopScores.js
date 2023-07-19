@@ -1,4 +1,4 @@
-function InsertHighscores() {
+function getHighscores() {
 	let lastData = [];
 	fetch("models/highscores.php", {
 		method: "GET",
@@ -8,7 +8,6 @@ function InsertHighscores() {
 	})
 		.then(async response => {
 			if (response.ok) {
-				// Reset input fields on success 
 				return response.json();
 			} else {
 				// Throw an error if the response status is not OK
@@ -29,11 +28,11 @@ function InsertHighscores() {
 			console.error("An error occurred: ", error);
 		})
 }
+
 function displayHighscores(data) {
 	const highscoreContainer = document.getElementById('highscoreContainer');
 	highscoreContainer.innerHTML = '';
 	data.forEach((value) => {
-		// <img src="${value.profile_image}" alt="Profile Image" class="w-10 text-sm font-bold rounded-full">
 		const highscoreHtml = `
     <div class="highscore">
         <a href="/profile/${value.username}">
@@ -43,10 +42,11 @@ function displayHighscores(data) {
             <a href="/profile/${value.username}" class="username">${value.username}</a>
             <span class="date-time">${value.description}</span>
         </div>
-        <div class="score">${value.highscore}</div>
+        <div class="score">Score | ${value.highscore}</div>
     </div>
 			`;
 		highscoreContainer.insertAdjacentHTML('beforeend', highscoreHtml);
 	});
 }
-InsertHighscores();
+
+getHighscores();
