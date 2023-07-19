@@ -16,7 +16,7 @@
     <?php
     if (!isset($_SESSION['user_id'])) {
         // Redirect to the sign-in page
-        header("Location: signin");
+        header("Location: signin.php");
         exit();
     }
     require 'views/components/button.php';
