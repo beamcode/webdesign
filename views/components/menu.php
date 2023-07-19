@@ -24,12 +24,6 @@
         icon: 'views/icons/score-icon.php',
         link: 'score.php'
     );
-    Anchor(
-        class: $view == 'shop' ? 'active' : '',
-        text: 'Shop',
-        icon: 'views/icons/shop-icon.php',
-        link: 'shop.php'
-    );
     ?>
 </nav>
 <hr>

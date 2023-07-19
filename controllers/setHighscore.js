@@ -5,7 +5,7 @@ function setHighScore(highScore) {
     formData.append('highScore', highScore.toString());
 
     // Send the form data to the PHP backend
-    let status = fetch("models/highscores.php", {
+    let status = fetch("models/highScoreUtils.php", {
         method: "POST",
         body: formData
     })
@@ -15,6 +15,7 @@ function setHighScore(highScore) {
                 const error = await response.json();
                 throw new Error(error.message);
             }
+            return response.json();
         })
         .then(data => {
             console.log(data)

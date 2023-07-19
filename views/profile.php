@@ -21,8 +21,8 @@ refreshUserData($_SESSION['user_id']);
             <label id="banner-upload-label" class="edit-label" for="banner-upload" style="visibility: hidden;"></label>
         </div>
         <div class="profile-menu">
-            <a class="profile-menu-link">Achievements</a>
-            <a class="profile-menu-link">Friends</a>
+            <!-- <a class="profile-menu-link">Achievements</a>
+            <a class="profile-menu-link">Friends</a> -->
             <a class="profile-menu-link edit-profile" onclick="toggleEditMode()">Edit Profile</a>
             <a class="profile-menu-link save-profile" onclick="saveChanges()" style="display: none;">Save Changes</a>
         </div>
@@ -49,11 +49,11 @@ refreshUserData($_SESSION['user_id']);
                 </ul>
             </div>
         </div>
-        <div class="profile-feed-right">
+        <!-- <div class="profile-feed-right">
             <div class="info-box">
                 coucou
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <script src="controllers/profileEdit.js"></script>
