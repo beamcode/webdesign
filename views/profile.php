@@ -37,14 +37,13 @@ refreshUserData($_SESSION['user_id']);
                     <?php echo trim($_SESSION['user_info']['description']); ?>
                 </p>
 
-                <textarea placeholder="Add a description!" id="profile-description-edit" class="" style="color: black; width: 100%; height: 60px; resize: none; display: none;"><?php echo trim($_SESSION['user_info']['description']) ?></textarea>
+                <textarea placeholder="Add a description!" id="profile-description-edit" class="" style="color: black; width: 100%; resize: none; display: none;"><?php echo trim($_SESSION['user_info']['description']) ?></textarea>
                 <h1 class="info-box-title">
-                    Score
+                    Highest Score
                 </h1>
                 <ul>
                     <li>
-                        <img src="" alt="" srcset="">
-                        <p>Score: <?php echo $_SESSION['user_info']['highscore']; ?></p>
+                        <p><?php echo $_SESSION['user_info']['highscore']; ?></p>
                     </li>
                 </ul>
             </div>

@@ -6,7 +6,7 @@ require 'ExceptionWithField.php';
 // Function to get all messages from the database
 function getMessages($db)
 {
-    $sql = "SELECT ChatMessages.id AS messageId, ChatMessages.message, ChatMessages.timestamp, Users.id AS user_id, Users.username, Users.profile_image 
+    $sql = "SELECT ChatMessages.id AS messageId, ChatMessages.message, CONVERT_TZ(ChatMessages.timestamp, 'UTC', 'Asia/Tokyo') AS timestamp, Users.id AS user_id, Users.username, Users.profile_image 
         FROM ChatMessages 
         INNER JOIN Users ON ChatMessages.user_id = Users.id
         ORDER BY ChatMessages.timestamp DESC
