@@ -390,6 +390,7 @@ Highscore
 }
 
 .highscore {
+  position: relative;
   display: flex;
   gap: 20px;
   font-size: 1.2rem;
@@ -410,6 +411,7 @@ Highscore
   display: flex;
   gap: 8px;
   flex-direction: column;
+  margin-right: 40px;
 }
 
 .highscore .username {
@@ -431,11 +433,15 @@ Highscore
 }
 
 .highscore .score {
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-left: auto; /* Moves the highscore to the right */
   display: flex;
   align-items: center;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  background-color: #313338;
+  padding: 16px;
 }
 
 .highscore .trophy-icon {

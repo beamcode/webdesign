@@ -15,12 +15,12 @@
             <p class="title">Welcome back</p>
             <p class="message">We're so happy to see you again!</p>
             <label>
-                <input name="username" placeholder="" type="text" class="input username" required>
+                <input name="username" placeholder="" type="text" class="input username" required autocomplete>
                 <span class="placeholder">Username</span>
             </label>
             <span id="username-error" class="error-message"></span>
             <label class="password-field">
-                <input name="password" placeholder="" type="password" class="input password" required>
+                <input name="password" placeholder="" type="password" class="input password" required autocomplete>
                 <span class="placeholder">Password</span>
                 <i class="toggle-password fa fa-eye"></i>
             </label>

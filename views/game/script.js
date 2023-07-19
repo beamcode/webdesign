@@ -25,5 +25,8 @@ async function loadAllMaps() {
 }
 
 loadAllMaps().then(levels => {
-    new Game(levels, document.querySelector(".game"));
+    var parent = document.querySelector(".game")
+    if (parent) {
+        new Game(levels, parent);
+    }
 });
