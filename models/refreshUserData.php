@@ -6,7 +6,7 @@ function refreshUserData($userId)
 {
     global $db;
     try {
-        $stmt = $db->prepare("SELECT id, username, description, highscore, profile_image, banner_image, friends_ids FROM Users WHERE id = ?");
+        $stmt = $db->prepare("SELECT id, username, description, highscore, profile_image, banner_image FROM Users WHERE id = ?");
         if (!$stmt) {
             throw new Exception('An error occurred while preparing the SQL statement');
         }

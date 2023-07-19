@@ -66,7 +66,7 @@ function getMessages(scroll = false) {
             } else {
                 setTimeout(function () {
                     getMessages(false);
-                }, 111500);
+                }, 1000);
             }
         });
 }

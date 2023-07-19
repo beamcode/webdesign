@@ -10,7 +10,7 @@ function getMessages($db)
         FROM ChatMessages 
         INNER JOIN Users ON ChatMessages.user_id = Users.id
         ORDER BY ChatMessages.timestamp DESC
-        LIMIT 30";
+        LIMIT 60";
 
     $result = $db->query($sql);
 
@@ -36,7 +36,6 @@ function saveMessage($userId, $message, $db)
         return true;
     } else {
         // Error occurred while saving the message
-        error_log("fuck");
         $stmt->close();
         return false;
     }
@@ -76,7 +75,7 @@ try {
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Fetch messages from the database
         $data = getMessages($db);
-        $responseCode = 500;
+        $responseCode = 200;
 
         // Check if any messages were fetched
         if (!empty($data)) {
@@ -89,8 +88,9 @@ try {
         } else {
             // Error occurred while fetching messages
             $response = [
-                "status" => "error",
-                "message" => "Error occurred while fetching the data from the database"
+                "status" => "success",
+                "user_id" => $_SESSION["user_id"],
+                "messagesData" => []
             ];
         }
 

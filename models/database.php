@@ -23,6 +23,26 @@ if ($db->connect_error) {
     header('Location: /error');
     exit();
 } else {
+    $sqlGlobal = "CREATE TABLE IF NOT EXISTS Variables (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        youtube_link VARCHAR(255) DEFAULT 'Oq7PUgSbBJI'
+    )";
+
+    // Execute the 'Users' table query
+    if ($db->query($sqlGlobal) !== TRUE) {
+        echo "Error creating table 'Global': " . $db->error;
+        return null;
+    }
+
+    $sqlInsertDefault = "INSERT INTO Variables (youtube_link)
+        SELECT 'Oq7PUgSbBJI'
+        WHERE NOT EXISTS (SELECT 1 FROM Variables LIMIT 1);
+        ";
+
+    if ($db->query($sqlInsertDefault) !== TRUE) {
+        echo "Error adding default value: " . $db->error;
+    }
+
     // SQL query to create the 'Users' table
     $sqlUsers = "CREATE TABLE IF NOT EXISTS Users (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -31,8 +51,7 @@ if ($db->connect_error) {
         description VARCHAR(255) DEFAULT 'I love this website!',
         highscore INT(6) UNSIGNED DEFAULT 0,
         profile_image VARCHAR(255) DEFAULT 'views/assets/images/default_profile.png',
-        banner_image VARCHAR(255) DEFAULT 'views/assets/images/default_banner.png',
-        friends_ids VARCHAR(255)
+        banner_image VARCHAR(255) DEFAULT 'views/assets/images/default_banner.png'
     )";
 
     // Execute the 'Users' table query

@@ -45,6 +45,7 @@
     </div>
     <script src="script.js"></script>
     <script type="module" src="views/game/script.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 
 </html>
