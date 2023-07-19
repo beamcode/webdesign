@@ -10,6 +10,11 @@ class Game {
         this.data = null;
         this.screenManager = new ScreenManager(this, parent);
         this.screenManager.displayMenu();
+
+
+        this.audio = new Audio('views/assets/sounds/mario_song.mp3');
+        this.audio.volume = 0.1;
+        this.audio.loop = true;
     }
 
     init() {
@@ -48,11 +53,13 @@ class Game {
         console.log("You win!", this.data.score);
         this.screenManager.displayWinScreen(this.data.score);
         setHighScore(this.data.score);
+        this.audio.pause();
     }
 
     handleDefeat() {
         console.log("You lose!", this.data.score);
         this.screenManager.displayLoseScreen(this.data.score);
+        this.audio.pause();
     }
 
     play() {
@@ -60,6 +67,7 @@ class Game {
         this.init();
         console.log(this.data);
         this.run();
+        this.audio.play();
     }
 
     run() {
