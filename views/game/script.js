@@ -10,9 +10,7 @@ async function loadMap(fileName) {
 }
 
 async function loadAllMaps() {
-    // const mapFiles = ['map1.txt', 'map2.txt', 'map3.txt', 'map4.txt'];
-    // const mapFiles = ['map1.txt', 'lol.txt'];
-    const mapFiles = ['lol.txt'];
+    const mapFiles = ['map1.txt', 'map2.txt', 'map3.txt'];
     const levels = [];
 
     for (let file of mapFiles) {

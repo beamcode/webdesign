@@ -1,10 +1,6 @@
 <form class="form-youtube" method="POST" onsubmit="setYouTubeLink(event)">
-  <!-- <input
-    style=""
-    > -->
   <?php
     Input(
-        // class: "youtube-link",
         name: "youtubeLink",
         id: "searchBar",
         autoComplete: "off",
