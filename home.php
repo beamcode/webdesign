@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the sign-in page
+    header("Location: signin.php");
+    exit();
+}
+
 require_once 'models/ENV.php';
 require_once 'models/database.php';
 require_once 'models/ExceptionWithField.php';

@@ -4,6 +4,12 @@ require_once 'models/ENV.php';
 require_once 'models/database.php';
 require_once 'models/ExceptionWithField.php';
 
+if (isset($_SESSION['user_id'])) {
+    // Redirect to the sign-in page
+    header("Location: home.php");
+    exit();
+}
+
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $tokens = explode('/', $uri);
 $uri = $tokens[sizeof($tokens) - 1];
