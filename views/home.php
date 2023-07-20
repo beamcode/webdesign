@@ -1,24 +1,25 @@
 <form class="form-youtube" method="POST" onsubmit="setYouTubeLink(event)">
   <?php
-    Input(
-        name: "youtubeLink",
-        id: "searchBar",
-        autoComplete: "off",
-        type: 'text',
-        required: true,
-        placeholder: "Paste a youtube link...",
-    );
-    Input(
-      class: "youtube-link-hidden",
-      name: "message",
-      id: "idkanymore",
-      autoComplete: "off",
-      type: 'text',
-    );
-    Button(
-      id: "playButton",
-      text: "Play",
-    );
+  Input(
+    name: "youtubeLink",
+    id: "searchBar",
+    autoComplete: "off",
+    type: 'text',
+    required: true,
+    placeholder: "Paste a youtube link...",
+  );
+  Input(
+    class: "youtube-link-hidden",
+    name: "message",
+    id: "idkanymore",
+    autoComplete: "off",
+    type: 'text',
+  );
+  Button(
+    id: "playButton",
+    text: "Play",
+    type: "submit"
+  );
   ?>
 </form>
 <iframe id="videoFrame" width="100%" height="80%" style="border-radius: 8px;" src="" frameborder="0" allowfullscreen></iframe>
