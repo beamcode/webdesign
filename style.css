@@ -466,3 +466,23 @@ Highscore
   fill: gold;
   margin-left: 5px;
 }
+
+
+/* .youtube-link {
+  width: calc(100% - 70px);
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 5px;
+} */
+
+.youtube-link-hidden {
+  display: none;
+}
+
+.form-youtube {
+  width: 100%;
+  margin: var(--spacer-lg) 0 var(--spacer-xl) 0;
+  display: flex;
+  gap: var(--spacer-md);
+}
