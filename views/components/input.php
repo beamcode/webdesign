@@ -3,9 +3,9 @@ function Input($name = null, $required = false, $placeholder = null, $autoComple
 ?>
     <div
         class="input <?php echo $class ? $class : ''; ?>"
-        <?php echo $id ? 'id="' . $id . '"' : ''; ?>
     >
         <input
+            <?php echo $id ? 'id="' . $id . '"' : ''; ?>
             <?php echo $name ? 'name="' . $name . '"' : ''; ?>
             <?php echo $placeholder ? 'placeholder="' . $placeholder . '"' : ''; ?>
             type="<?php echo $type ?>"
